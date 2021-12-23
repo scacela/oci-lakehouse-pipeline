@@ -69,7 +69,7 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 ### Prerequisites
 - Fully-privileged access to an OCI Tenancy (account).
 - (CLI Terraform deployment only) Terraform set up on your local machine. You can access the steps [here](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm).
-- Sufficient availability of resources. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
+- Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
 
 
 ### Deployment via Resource Manager

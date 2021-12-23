@@ -1,0 +1,12 @@
+variable "datacatalog_display_name" {}
+variable "compartment_id" {}
+variable "datacatalog_group_is_deployed" {}
+variable "datacatalog_group_name" {}
+variable "datacatalog_group_description" {}
+variable "datacatalog_dynamic_group_is_deployed" {}
+variable "datacatalog_dynamic_group_name" {}
+variable "datacatalog_dynamic_group_description" {}
+variable "datacatalog_policy_is_deployed" {}
+variable "datacatalog_policy_name" {}
+variable "datacatalog_policy_description" {}
+variable "compartment_policy_statement_substring" {}

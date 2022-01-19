@@ -9,13 +9,11 @@ module "compartment" {
   compartment_group_is_deployed = var.compartment_group_is_deployed
   compartment_group_name = local.compartment_group_name
   compartment_group_description = var.compartment_group_description
-  compartment_dynamic_group_is_deployed = var.compartment_dynamic_group_is_deployed
-  compartment_dynamic_group_name = local.compartment_dynamic_group_name
-  compartment_dynamic_group_description = var.compartment_dynamic_group_description
   compartment_policy_is_deployed = var.compartment_policy_is_deployed
   compartment_policy_name = local.compartment_policy_name
   compartment_policy_description = var.compartment_policy_description
   compartment_policy_statement_substring = local.compartment_policy_statement_substring
+  tenancy_ocid = var.tenancy_ocid
 }
 
 module "vcn" {
@@ -32,13 +30,11 @@ module "vcn" {
   vcn_group_is_deployed = var.vcn_group_is_deployed
   vcn_group_name = local.vcn_group_name
   vcn_group_description = var.vcn_group_description
-  vcn_dynamic_group_is_deployed = var.vcn_dynamic_group_is_deployed
-  vcn_dynamic_group_name = local.vcn_dynamic_group_name
-  vcn_dynamic_group_description = var.vcn_dynamic_group_description
   vcn_policy_is_deployed = var.vcn_policy_is_deployed
   vcn_policy_name = local.vcn_policy_name
   vcn_policy_description = var.vcn_policy_description
   compartment_policy_statement_substring = local.compartment_policy_statement_substring
+  tenancy_ocid = var.tenancy_ocid
 }
 
 module "ods" {
@@ -126,13 +122,11 @@ module "adw" {
   adw_group_is_deployed = var.adw_group_is_deployed
   adw_group_name = local.adw_group_name
   adw_group_description = var.adw_group_description
-  adw_dynamic_group_is_deployed = var.adw_dynamic_group_is_deployed
-  adw_dynamic_group_name = local.adw_dynamic_group_name
-  adw_dynamic_group_description = var.adw_dynamic_group_description
   adw_policy_is_deployed = var.adw_policy_is_deployed
   adw_policy_name = local.adw_policy_name
   adw_policy_description = var.adw_policy_description
   compartment_policy_statement_substring = local.compartment_policy_statement_substring
+  tenancy_ocid = var.tenancy_ocid
 }
 
 module "oac" {
@@ -149,13 +143,11 @@ module "oac" {
   oac_group_is_deployed = var.oac_group_is_deployed
   oac_group_name = local.oac_group_name
   oac_group_description = var.oac_group_description
-  oac_dynamic_group_is_deployed = var.oac_dynamic_group_is_deployed
-  oac_dynamic_group_name = local.oac_dynamic_group_name
-  oac_dynamic_group_description = var.oac_dynamic_group_description
   oac_policy_is_deployed = var.oac_policy_is_deployed
   oac_policy_name = local.oac_policy_name
   oac_policy_description = var.oac_policy_description
   compartment_policy_statement_substring = local.compartment_policy_statement_substring
+  tenancy_ocid = var.tenancy_ocid
 }
 
 module "bucket" {
@@ -171,13 +163,11 @@ module "bucket" {
   bucket_group_is_deployed = var.bucket_group_is_deployed
   bucket_group_name = local.bucket_group_name
   bucket_group_description = var.bucket_group_description
-  bucket_dynamic_group_is_deployed = var.bucket_dynamic_group_is_deployed
-  bucket_dynamic_group_name = local.bucket_dynamic_group_name
-  bucket_dynamic_group_description = var.bucket_dynamic_group_description
   bucket_policy_is_deployed = var.bucket_policy_is_deployed
   bucket_policy_name = local.bucket_policy_name
   bucket_policy_description = var.bucket_policy_description
   compartment_policy_statement_substring = local.compartment_policy_statement_substring
+  tenancy_ocid = var.tenancy_ocid
 }
 
 module "datacatalog" {
@@ -196,6 +186,7 @@ module "datacatalog" {
   datacatalog_policy_name = local.datacatalog_policy_name
   datacatalog_policy_description = var.datacatalog_policy_description
   compartment_policy_statement_substring = local.compartment_policy_statement_substring
+  tenancy_ocid = var.tenancy_ocid
 }
 
 module "streaming" {
@@ -210,11 +201,9 @@ module "streaming" {
   streaming_group_is_deployed = var.streaming_group_is_deployed
   streaming_group_name = local.streaming_group_name
   streaming_group_description = var.streaming_group_description
-  streaming_dynamic_group_is_deployed = var.streaming_dynamic_group_is_deployed
-  streaming_dynamic_group_name = local.streaming_dynamic_group_name
-  streaming_dynamic_group_description = var.streaming_dynamic_group_description
   streaming_policy_is_deployed = var.streaming_policy_is_deployed
   streaming_policy_name = local.streaming_policy_name
   streaming_policy_description = var.streaming_policy_description
   compartment_policy_statement_substring = local.compartment_policy_statement_substring
+  tenancy_ocid = var.tenancy_ocid
 }

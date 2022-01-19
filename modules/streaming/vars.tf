@@ -6,10 +6,8 @@ variable "compartment_id" {}
 variable "streaming_group_is_deployed" {}
 variable "streaming_group_name" {}
 variable "streaming_group_description" {}
-variable "streaming_dynamic_group_is_deployed" {}
-variable "streaming_dynamic_group_name" {}
-variable "streaming_dynamic_group_description" {}
 variable "streaming_policy_is_deployed" {}
 variable "streaming_policy_name" {}
 variable "streaming_policy_description" {}
 variable "compartment_policy_statement_substring" {}
+variable "tenancy_ocid" {}

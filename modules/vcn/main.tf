@@ -36,18 +36,9 @@ resource "oci_identity_group" "vcn_group" {
 #     user_id = var.user_ocid
 # }
 
-resource "oci_identity_dynamic_group" "vcn_dynamic_group" {
-  count = var.vcn_dynamic_group_is_deployed ? 1 : 0
-  #Required
-  compartment_id = var.tenancy_ocid
-  description = var.vcn_dynamic_group_description
-  # matching_rule =
-  name = var.vcn_dynamic_group_name
-}
-
 resource "oci_identity_policy" "vcn_policy" {
   count = var.vcn_policy_is_deployed ? 1 : 0
-  depends_on = [oci_identity_group.vcn_group, oci_identity_dynamic_group.vcn_dynamic_group]
+  depends_on = [oci_identity_group.vcn_group]
   #Required
   compartment_id = var.tenancy_ocid
   description = var.vcn_policy_description

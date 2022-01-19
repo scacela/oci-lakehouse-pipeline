@@ -8,10 +8,8 @@ variable "service_id" {}
 variable "vcn_group_is_deployed" {}
 variable "vcn_group_name" {}
 variable "vcn_group_description" {}
-variable "vcn_dynamic_group_is_deployed" {}
-variable "vcn_dynamic_group_name" {}
-variable "vcn_dynamic_group_description" {}
 variable "vcn_policy_is_deployed" {}
 variable "vcn_policy_name" {}
 variable "vcn_policy_description" {}
 variable "compartment_policy_statement_substring" {}
+variable "tenancy_ocid" {}

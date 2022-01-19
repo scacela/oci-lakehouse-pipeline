@@ -7,10 +7,8 @@ variable "compartment_id" {}
 variable "bucket_group_is_deployed" {}
 variable "bucket_group_name" {}
 variable "bucket_group_description" {}
-variable "bucket_dynamic_group_is_deployed" {}
-variable "bucket_dynamic_group_name" {}
-variable "bucket_dynamic_group_description" {}
 variable "bucket_policy_is_deployed" {}
 variable "bucket_policy_name" {}
 variable "bucket_policy_description" {}
 variable "compartment_policy_statement_substring" {}
+variable "tenancy_ocid" {}

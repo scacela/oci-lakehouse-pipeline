@@ -34,7 +34,6 @@ compartment_name_1 = replace(var.compartment_name, "/[^A-Za-z0-9]/", "")
 compartment_name_2 = substr(local.compartment_name_1, 0, local.max_length_compartment_name - local.abbrev_suffix_length)
 compartment_name = "${local.compartment_name_2}${local.suffix_for_global_resources}"
 compartment_group_name = "${var.compartment_group_name}${local.suffix_for_global_resources}"
-compartment_dynamic_group_name = "${var.compartment_dynamic_group_name}${local.suffix_for_global_resources}"
 compartment_policy_name = "${var.compartment_policy_name}${local.suffix_for_global_resources}"
 
 # VCN
@@ -45,7 +44,6 @@ vcn_dns_label = "${local.vcn_dns_label_2}${local.suffix}"
 ng_display_name = "${var.ng_display_name} ${local.suffix}"
 sg_display_name = "${var.sg_display_name} ${local.suffix}"
 vcn_group_name = "${var.vcn_group_name}${local.suffix_for_global_resources}"
-vcn_dynamic_group_name = "${var.vcn_dynamic_group_name}${local.suffix_for_global_resources}"
 vcn_policy_name = "${var.vcn_policy_name}${local.suffix_for_global_resources}"
 
 # ODS
@@ -81,7 +79,6 @@ autonomous_database_db_name_2 = replace(local.autonomous_database_db_name_1, "/(
 autonomous_database_db_name_3 = substr(local.autonomous_database_db_name_2, 0, local.max_length_autonomous_database_db_name - local.abbrev_suffix_length)
 autonomous_database_db_name = "${local.autonomous_database_db_name_3}${local.suffix}"
 adw_group_name = "${var.adw_group_name}${local.suffix_for_global_resources}"
-adw_dynamic_group_name = "${var.adw_dynamic_group_name}${local.suffix_for_global_resources}"
 adw_policy_name = "${var.adw_policy_name}${local.suffix_for_global_resources}"
 
 # OAC
@@ -90,7 +87,6 @@ analytics_instance_name_2 = replace(local.analytics_instance_name_1, "/(^[0-9][a
 analytics_instance_name_3 = substr(local.analytics_instance_name_2, 0, local.max_length_analytics_instance_name - local.abbrev_suffix_length)
 analytics_instance_name = "${local.analytics_instance_name_3}${local.suffix}"
 oac_group_name = "${var.oac_group_name}${local.suffix_for_global_resources}"
-oac_dynamic_group_name = "${var.oac_dynamic_group_name}${local.suffix_for_global_resources}"
 oac_policy_name = "${var.oac_policy_name}${local.suffix_for_global_resources}"
 
 # Bucket
@@ -99,7 +95,6 @@ bucket_name_2 = replace(local.bucket_name_1, "/(^[0-9][a-zA-Z0-9]*)/", "BKT$1")
 bucket_name_3 = substr(local.bucket_name_2, 0, local.max_length_bucket_name - local.abbrev_suffix_length)
 bucket_name = "${local.bucket_name_3}${local.suffix}"
 bucket_group_name = "${var.bucket_group_name}${local.suffix_for_global_resources}"
-bucket_dynamic_group_name = "${var.bucket_dynamic_group_name}${local.suffix_for_global_resources}"
 bucket_policy_name = "${var.bucket_policy_name}${local.suffix_for_global_resources}"
 
 # Data Catalog
@@ -112,6 +107,5 @@ datacatalog_policy_name = "${var.datacatalog_policy_name}${local.suffix_for_glob
 stream_pool_name = "${var.stream_pool_name} ${local.suffix}"
 stream_name = "${var.stream_name} ${local.suffix}"
 streaming_group_name = "${var.streaming_group_name}${local.suffix_for_global_resources}"
-streaming_dynamic_group_name = "${var.streaming_dynamic_group_name}${local.suffix_for_global_resources}"
 streaming_policy_name = "${var.streaming_policy_name}${local.suffix_for_global_resources}"
 }

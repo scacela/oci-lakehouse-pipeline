@@ -23,7 +23,7 @@ resource "oci_identity_dynamic_group" "datacatalog_dynamic_group" {
   #Required
   compartment_id = var.tenancy_ocid
   description = var.datacatalog_dynamic_group_description
-  # matching_rule =
+  matching_rule = "Any {datacatalog.compartment.id='${var.compartment_id}'}"
   name = var.datacatalog_dynamic_group_name
 }
 
@@ -34,7 +34,8 @@ resource "oci_identity_policy" "datacatalog_policy" {
   compartment_id = var.tenancy_ocid
   description = var.datacatalog_policy_description
   name = var.datacatalog_policy_name
-  statements = ["Allow group ${var.datacatalog_group_name} to manage data-catalogs in ${var.compartment_policy_statement_substring}",
+  statements = ["allow dynamic-group ${var.datacatalog_dynamic_group_name} to read object-family in ${var.compartment_policy_statement_substring}",
+"Allow group ${var.datacatalog_group_name} to manage data-catalogs in ${var.compartment_policy_statement_substring}",
 "Allow group ${var.datacatalog_group_name} to manage data-catalogs-private-endpoints in ${var.compartment_policy_statement_substring}",
 "Allow group ${var.datacatalog_group_name} to manage data-catalog-metastores in ${var.compartment_policy_statement_substring}",
 "Allow group ${var.datacatalog_group_name} to manage data-catalog-data-assets in ${var.compartment_policy_statement_substring}",

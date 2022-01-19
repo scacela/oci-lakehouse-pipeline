@@ -30,18 +30,9 @@ resource "oci_identity_group" "adw_group" {
 #     user_id = var.user_ocid
 # }
 
-resource "oci_identity_dynamic_group" "adw_dynamic_group" {
-  count = var.adw_dynamic_group_is_deployed ? 1 : 0
-  #Required
-  compartment_id = var.tenancy_ocid
-  description = var.adw_dynamic_group_description
-  # matching_rule =
-  name = var.adw_dynamic_group_name
-}
-
 resource "oci_identity_policy" "adw_policy" {
   count = var.adw_policy_is_deployed ? 1 : 0
-  depends_on = [oci_identity_group.adw_group, oci_identity_dynamic_group.adw_dynamic_group]
+  depends_on = [oci_identity_group.adw_group]
   #Required
   compartment_id = var.tenancy_ocid
   description = var.adw_policy_description

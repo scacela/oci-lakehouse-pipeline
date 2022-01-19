@@ -24,18 +24,9 @@ resource "oci_identity_group" "bucket_group" {
 #     user_id = var.user_ocid
 # }
 
-resource "oci_identity_dynamic_group" "bucket_dynamic_group" {
-  count = var.bucket_dynamic_group_is_deployed ? 1 : 0
-  #Required
-  compartment_id = var.tenancy_ocid
-  description = var.bucket_dynamic_group_description
-  # matching_rule =
-  name = var.bucket_dynamic_group_name
-}
-
 resource "oci_identity_policy" "bucket_policy" {
   count = var.bucket_policy_is_deployed ? 1 : 0
-  depends_on = [oci_identity_group.bucket_group, oci_identity_dynamic_group.bucket_dynamic_group]
+  depends_on = [oci_identity_group.bucket_group]
   #Required
   compartment_id = var.tenancy_ocid
   description = var.bucket_policy_description

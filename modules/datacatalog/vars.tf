@@ -10,3 +10,4 @@ variable "datacatalog_policy_is_deployed" {}
 variable "datacatalog_policy_name" {}
 variable "datacatalog_policy_description" {}
 variable "compartment_policy_statement_substring" {}
+variable "tenancy_ocid" {}

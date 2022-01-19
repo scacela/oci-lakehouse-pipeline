@@ -8,10 +8,8 @@ variable "analytics_instance_idcs_access_token" {}
 variable "oac_group_is_deployed" {}
 variable "oac_group_name" {}
 variable "oac_group_description" {}
-variable "oac_dynamic_group_is_deployed" {}
-variable "oac_dynamic_group_name" {}
-variable "oac_dynamic_group_description" {}
 variable "oac_policy_is_deployed" {}
 variable "oac_policy_name" {}
 variable "oac_policy_description" {}
 variable "compartment_policy_statement_substring" {}
+variable "tenancy_ocid" {}

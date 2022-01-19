@@ -26,22 +26,13 @@ resource "oci_identity_group" "oac_group" {
 #     user_id = var.user_ocid
 # }
 
-resource "oci_identity_dynamic_group" "oac_dynamic_group" {
-  count = var.oac_dynamic_group_is_deployed ? 1 : 0
-  #Required
-  compartment_id = var.tenancy_ocid
-  description = var.oac_dynamic_group_description
-  # matching_rule =
-  name = var.oac_dynamic_group_name
-}
-
 resource "oci_identity_policy" "oac_policy" {
   count = var.oac_policy_is_deployed ? 1 : 0
-  depends_on = [oci_identity_group.oac_group, oci_identity_dynamic_group.oac_dynamic_group]
+  depends_on = [oci_identity_group.oac_group]
   #Required
   compartment_id = var.tenancy_ocid
   description = var.oac_policy_description
   name = var.oac_policy_name
-  statements = ["Allow group ${var.datacatalog_group_name} to manage analytics-instances in ${var.compartment_policy_statement_substring}",
-"Allow group ${var.datacatalog_group_name} to manage analytics-instance-work-requests in ${var.compartment_policy_statement_substring}"]
+  statements = ["Allow group ${var.oac_group_name} to manage analytics-instances in ${var.compartment_policy_statement_substring}",
+"Allow group ${var.oac_group_name} to manage analytics-instance-work-requests in ${var.compartment_policy_statement_substring}"]
 }

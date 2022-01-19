@@ -13,10 +13,8 @@ variable "compartment_id" {}
 variable "adw_group_is_deployed" {}
 variable "adw_group_name" {}
 variable "adw_group_description" {}
-variable "adw_dynamic_group_is_deployed" {}
-variable "adw_dynamic_group_name" {}
-variable "adw_dynamic_group_description" {}
 variable "adw_policy_is_deployed" {}
 variable "adw_policy_name" {}
 variable "adw_policy_description" {}
 variable "compartment_policy_statement_substring" {}
+variable "tenancy_ocid" {}

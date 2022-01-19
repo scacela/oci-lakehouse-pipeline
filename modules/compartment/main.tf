@@ -20,21 +20,12 @@ resource "oci_identity_group" "compartment_group" {
 #     user_id = var.user_ocid
 # }
 
-resource "oci_identity_dynamic_group" "compartment_dynamic_group" {
-  count = var.compartment_dynamic_group_is_deployed ? 1 : 0
-  #Required
-  compartment_id = var.tenancy_ocid
-  description = var.compartment_dynamic_group_description
-  # matching_rule =
-  name = var.compartment_dynamic_group_name
-}
-
 resource "oci_identity_policy" "compartment_policy" {
   count = var.compartment_policy_is_deployed ? 1 : 0
-  depends_on = [oci_identity_group.compartment_group, oci_identity_dynamic_group.compartment_dynamic_group]
+  depends_on = [oci_identity_group.compartment_group]
   #Required
   compartment_id = var.tenancy_ocid
   description = var.compartment_policy_description
   name = var.compartment_policy_name
-  statements = ["Allow group ${var.ods_group_name} to manage all-resources in ${var.compartment_policy_statement_substring}"]
+  statements = ["Allow group ${var.compartment_group_name} to manage all-resources in ${var.compartment_policy_statement_substring}"]
 }

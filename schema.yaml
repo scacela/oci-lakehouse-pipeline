@@ -1086,6 +1086,7 @@ variables:
     required: true
     description: "IDCS access token identifying a stripe and service administrator user. Steps: Log into IDCS as an IDCS admin and generate an access token. Set sufficient expiry time for you to deploy the Terraform scripts using the value from the IDCS token. The value from the token file can be supplied by pasting <VALUE> from {\"app_access_token\":\"<VALUE>\"}"
     title: "OAC IDCS Access Token"
+    visible: oac_is_deployed
   analytics_instance_capacity_capacity_type:
     type: enum
     enum:

@@ -35,6 +35,6 @@ resource "oci_identity_policy" "streaming_policy" {
   statements = ["Allow group ${var.streaming_group_name} to manage streams in ${var.compartment_policy_statement_substring}",
 "Allow group ${var.streaming_group_name} to manage stream-pull in ${var.compartment_policy_statement_substring}",
 "Allow group ${var.streaming_group_name} to manage stream-push in ${var.compartment_policy_statement_substring}",
-"Allow group ${var.streaming_group_name} to manage stream-harness in ${var.compartment_policy_statement_substring}",
+"Allow group ${var.streaming_group_name} to manage connect-harness in ${var.compartment_policy_statement_substring}",
 "Allow group ${var.streaming_group_name} to manage stream-pools in ${var.compartment_policy_statement_substring}"]
 }

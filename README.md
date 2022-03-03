@@ -108,10 +108,10 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 		10. Click `Next` to proceed to the `Authorization` section. Choose the option to `Skip for later` to skip enforcing grants as authorization.
 		11. Click `Finish`, and then click `Close` to exit the `Application Added` popup window.
 		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application be used to generate tokens.
-	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be found from:
+	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be accessed as follows:
 	```
 
-	Hamburger menu > Applications > (search for your application).
+	Hamburger menu > Applications > (search for your application) > click the IDCS Application listing
 	
 	```
 	8. Choose the option for `Customized Scopes`, and then click `Download Token`. This will initiate the download of a token file to your local machine called `tokens.tok`.

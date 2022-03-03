@@ -80,7 +80,7 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 2. Log into your Oracle Cloud Infrastructure (OCI) tenancy with your user credentials. You will then be redirected to the `Stack information` section of Resource Manager.
 3. In the `Stack Information` section, select the box to confirm that you accept the [Oracle Terms of Use](https://cloudmarketplace.oracle.com/marketplace/content?contentId=50511634&render=inline).
 4. Click `Next` to proceed to the `Configure Variables` section.
-5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile. If Oracle Analytics Cloud (OAC) is one of the resources you wish to deploy, follow these sub-steps:
+5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile. If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, follow these sub-steps:
 \
 \
 	<b>Generate an Access Token for OAC Deployment:</b>

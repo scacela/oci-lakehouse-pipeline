@@ -128,7 +128,7 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 		1. Copy to your clipboard its identifier from under the `Value` column.
 		2. Duplicate your browser tab
 		3. Paste the identifier from your clipboard into the search field at the top of the OCI UI.
-		4. Click the listing that appears.
+		4. Click the listing that appears in the search results.
 
 ### Deployment via CLI Terraform
 

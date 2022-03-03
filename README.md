@@ -3,6 +3,8 @@ Deploy a pipeline for streaming, warehousing, processing and analyzing data.
 
 ## Table of Contents
 
+- [What can the stack provision?](#what-can-the-stack-provision)
+- [Prerequisites](#prerequisites)
 - [Deployment via Resource Manager](#deployment-via-resource-manager)
 - [Deployment via CLI Terraform](#deployment-via-cli-terraform)
 

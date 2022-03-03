@@ -73,7 +73,7 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 
 
 ### Deployment via Resource Manager
-For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4).
+For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
 
 
 1. Click the button, opening the link into a new browser tab:

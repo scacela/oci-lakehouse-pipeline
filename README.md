@@ -87,7 +87,7 @@ For general Resource Manager deployment steps, you can refer to [this documentat
 \
 \
 [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.1.zip)
-2. Log into your Oracle Cloud Infrastructure (OCI) tenancy with your user credentials. You will then be redirected to the `Stack information` section of Resource Manager.
+2. Log into your Oracle Cloud Infrastructure (OCI) tenancy with your user credentials. You will then be redirected to the `Stack Information` section of Resource Manager.
 3. In the `Stack Information` section, select the checkbox to confirm that you accept the [Oracle Terms of Use](https://cloudmarketplace.oracle.com/marketplace/content?contentId=50511634&render=inline).
 4. Click `Next` to proceed to the `Configure Variables` section.
 5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile.
@@ -111,7 +111,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 		<b>(One-Time Only) Generate an IDCS Application:</b>
 		1. Click the `+` icon on the card labeled, `Applications and Services` to add an IDCS Application.
 		2. Click `Confidential Application`
-		3. In the `Details` section, enter a name e.g.: `Analytics_Token_App`, then click `Next`.
+		3. In the `Details` section, enter a name, e.g. `Analytics_Token_App`, then click `Next`.
 		4. In the `Client` section, choose the option to `Configure this application as a client now`.
 		5. Select the following options for `Allowed Grant Types`:
 			- `Resource Owner`

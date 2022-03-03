@@ -16,17 +16,22 @@ variableGroups:
     - private_key_path
     - region
     - current_user_ocid
-- title: "Required Input"
+- title: "Select Resources"
   variables:
-    - analytics_instance_idcs_access_token
+    - compartment_is_deployed
+    - vcn_is_deployed
+    - ods_is_deployed
+    - odi_is_deployed
+    - adw_is_deployed
+    - oac_is_deployed
+    - bucket_is_deployed
+    - datacatalog_is_deployed
+    - streaming_is_deployed
 - title: "Naming"
   variables:
-    - naming_is_visible
     - suffix
 - title: "Compartment"
   variables:
-    - compartment_is_visible
-    - compartment_is_deployed
     - compartment_name
     - compartment_description
     - compartment_id
@@ -40,8 +45,6 @@ variableGroups:
     - compartment_policy_description
 - title: "Virtual Cloud Network"
   variables:
-    - vcn_is_visible
-    - vcn_is_deployed
     - vcn_display_name
     - vcn_dns_label
     - vcn_cidrs
@@ -55,8 +58,6 @@ variableGroups:
     - vcn_policy_description
 - title: "Data Science"
   variables:
-    - ods_is_visible
-    - ods_is_deployed
     - notebook_session_display_name
     - notebook_session_notebook_session_configuration_details_shape
     - notebook_session_notebook_session_configuration_details_block_storage_size_in_gbs
@@ -77,8 +78,6 @@ variableGroups:
     - ods_policy_description
 - title: "Data Integration"
   variables:
-    - odi_is_visible
-    - odi_is_deployed
     - odi_workspace_display_name
     - workspace_is_private_network_enabled
     - odi_subnet_display_name
@@ -97,8 +96,6 @@ variableGroups:
     - odi_policy_description
 - title: "Autonomous Data Warehouse"
   variables:
-    - adw_is_visible
-    - adw_is_deployed
     - autonomous_database_admin_password
     - autonomous_database_cpu_core_count
     - autonomous_database_db_version
@@ -118,8 +115,7 @@ variableGroups:
     - adw_policy_description
 - title: "Analytics Cloud"
   variables:
-    - oac_is_visible
-    - oac_is_deployed
+    - analytics_instance_idcs_access_token
     - analytics_instance_capacity_capacity_type
     - analytics_instance_capacity_capacity_value
     - analytics_instance_feature_set
@@ -133,8 +129,6 @@ variableGroups:
     - oac_policy_description
 - title: "Object Storage Bucket"
   variables:
-    - bucket_is_visible
-    - bucket_is_deployed
     - bucket_name
     - bucket_access_type
     - bucket_storage_tier
@@ -147,8 +141,6 @@ variableGroups:
     - bucket_policy_description
 - title: "Data Catalog"
   variables:
-    - datacatalog_is_visible
-    - datacatalog_is_deployed
     - datacatalog_display_name
     - datacatalog_group_is_deployed
     - datacatalog_group_name
@@ -161,8 +153,6 @@ variableGroups:
     - datacatalog_policy_description
 - title: "Streaming"
   variables:
-    - streaming_is_visible
-    - streaming_is_deployed
     - stream_pool_name
     - stream_name
     - stream_partitions
@@ -175,41 +165,77 @@ variableGroups:
     - streaming_policy_description
 
 variables:
-  naming_is_visible:
-    type: boolean
-    description: "Customize the suffix that will be appended to your resource names."
-    title: "Naming your Resources"
-    default: false
   suffix:
     type: string
     required: true
-    description: "Enter a string to use as a suffix. If this value contains DEFAULT_REGION_KEY, then the region key will be extracted from your cloud configuration and used to replace that part of the suffix value. If the value is set to NONE, then no suffix will be used."
+    description: "Enter a string to use as a suffix that will be appended to your resource names. If this value contains DEFAULT_REGION_KEY, then the region key will be extracted from your cloud configuration and used to replace that part of the suffix value. If the value is set to NONE, then no suffix will be used."
     title: "Suffix"
-    default: "DEFAULT_REGION_KEY"
-    visible: naming_is_visible
-
-  compartment_is_visible:
-    type: boolean
-    description: "Logical container for resources, used to manage access to resources as part of Identity and Access Management (IAM)."
-    title: "Identity and Access Management (IAM) - Compartment (logical IAM container)"
-    default: false
+    default: "NONE"
   compartment_is_deployed:
     type: boolean
     required: true
-    description: "If checked, the stack will be deployed within a new Compartment (logical IAM container), which will be deployed within an existing Compartment. If unchecked, the stack will be deployed within an existing Compartment."
+    description: "New Compartment (logical IAM container), which will be deployed within an existing Compartment. If unchecked, the stack will be deployed within an existing Compartment."
     title: "Deploy New Compartment?"
-    default: true
+    default: false
     visible: compartment_is_visible
+  vcn_is_deployed:
+    type: boolean
+    required: true
+    description: "Customizable and private cloud network."
+    title: "Deploy Virtual Cloud Network?"
+    default: true
+  ods_is_deployed:
+    type: boolean
+    required: true
+    description: "Build, train, deploy, and manage machine learning models with a data science cloud platform built for teams."
+    title: "Deploy ODS?"
+    default: true
+  odi_is_deployed:
+    type: boolean
+    required: true
+    description: "ETL data for data science and analytics. Design code-free data flows into data lakes and data marts.."
+    title: "Deploy ODI?"
+    default: false
+  adw_is_deployed:
+    type: boolean
+    required: true
+    description: "Managed data warehouse service that automates provisioning, configuring, securing, tuning, scaling, and backing up of the data warehouse. It includes tools for self-service data loading, data transformations, business models, automatic insights, and built-in converged database capabilities that enable simpler queries across multiple data types and machine learning analysis."
+    title: "Deploy Autonomous Data Warehouse (ADW)?"
+    default: true
+  oac_is_deployed:
+    type: boolean
+    required: true
+    description: "Provides the capabilities required to address the entire analytics process from data ingestion and modeling, through data preparation and enrichment, to visualization and collaboration without compromising security and governance."
+    title: "Deploy Oracle Analytics Cloud (OAC)?"
+    default: true
+  bucket_is_deployed:
+    type: boolean
+    required: true
+    description: "Securely store any type of data in its native format, with built-in redundancy."
+    title: "Deploy Bucket?"
+    default: false
+  datacatalog_is_deployed:
+    type: boolean
+    required: true
+    description: "Metadata management service that helps data professionals discover data and support data governance. Designed specifically to work well with the Oracle ecosystem, it provides an inventory of assets, a business glossary, and a common metastore for data lakes."
+    title: "Deploy Data Catalog?"
+    default: false
+  streaming_is_deployed:
+    type: boolean
+    required: true
+    description: "Real-time, serverless, Apache Kafka-compatible event streaming platform for developers and data scientists."
+    title: "Deploy Streaming?"
+    default: false
+
+
+
   compartment_name:
     type: string
     required: true
     description: "(Updatable) The name of the Compartment. Valid characters are uppercase or lowercase letters, numbers, hyphens, underscores, and periods. The name must be unique across all Compartments in the parent Compartment."
     title: "Compartment Name"
     default: "Streaming"
-    visible:
-      and:
-        - compartment_is_visible
-        - compartment_is_deployed
+    visible: compartment_is_deployed
     pattern: "^[_\\-a-zA-Z0-9\\.]*$"
   compartment_description:
     type: string
@@ -217,10 +243,7 @@ variables:
     description: "Provide a description for the new Compartment."
     title: "Compartment Description"
     default: "Compartment for Streaming Pipeline"
-    visible:
-      and:
-        - compartment_is_visible
-        - compartment_is_deployed
+    visible: compartment_is_deployed
   compartment_id:
     type: oci:identity:compartment:id
     required: true
@@ -228,40 +251,29 @@ variables:
     title: "Compartment"
     default: compartment_ocid
     visible:
-      and:
-        - compartment_is_visible
-        - not:
-          - compartment_is_deployed
+      - not: compartment_is_deployed
+
   parent_compartment_id:
     type: oci:identity:compartment:id
     required: true
     description: "Compartment where all resources in the stack will be deployed."
     title: "Parent Compartment"
     default: compartment_ocid
-    visible:
-      and:
-        - compartment_is_visible
-        - compartment_is_deployed
+    visible: compartment_is_deployed
   enable_delete:
     type: boolean
     required: true
     description: "If set to false, the provider will implicitly import the compartment if there is a name collision, and will not actually delete the compartment on destroy or removal of the resource declaration. If set to true, the provider will throw an error on a name collision with another compartment, and will attempt to delete the compartment on destroy or removal of the resource declaration."
     title: "Enable Delete"
     default: false
-    visible:
-      and:
-        - compartment_is_visible
-        - compartment_is_deployed
+    visible: compartment_is_deployed
   compartment_group_is_deployed:
     type: boolean
     required: true
     description: "Group for users who manage Compartment-related operations."
     title: "Deploy Group for Compartment?"
     default: true
-    visible:
-      and:
-        - compartment_is_visible
-        - compartment_is_deployed
+    visible: compartment_is_deployed
   compartment_group_name:
     type: string
     required: true
@@ -270,9 +282,7 @@ variables:
     default: "CompartmentGroup"
     visible:
       and:
-        - and:
-          - compartment_is_visible
-          - compartment_is_deployed
+        - compartment_is_deployed
         - compartment_group_is_deployed
   compartment_group_description:
     type: string
@@ -282,9 +292,7 @@ variables:
     default: "Group for users who manage Compartment-related operations."
     visible:
       and:
-        - and:
-          - compartment_is_visible
-          - compartment_is_deployed
+        - compartment_is_deployed
         - compartment_group_is_deployed
   compartment_policy_is_deployed:
     type: boolean
@@ -294,8 +302,8 @@ variables:
     default: true
     visible:
       and:
-        - compartment_is_visible
         - compartment_is_deployed
+        - compartment_group_is_deployed
   compartment_policy_name:
     type: string
     required: true
@@ -304,9 +312,7 @@ variables:
     default: "CompartmentPolicy"
     visible:
       and:
-        - and:
-          - compartment_is_visible
-          - compartment_is_deployed
+        - compartment_is_deployed
         - compartment_policy_is_deployed
   compartment_policy_description:
     type: string
@@ -316,33 +322,16 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - compartment_is_visible
-          - compartment_is_deployed
+        - compartment_is_deployed
         - compartment_policy_is_deployed
 
-  vcn_is_visible:
-    type: boolean
-    description: "Customizable and private cloud network."
-    title: "Virtual Cloud Network (VCN)"
-    default: false
-  vcn_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy Virtual Cloud Network?"
-    default: true
-    visible: vcn_is_visible
   vcn_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your Virtual Cloud Network (VCN)."
     title: "VCN Name"
     default: "VCN"
-    visible:
-      and:
-        - vcn_is_visible
-        - vcn_is_deployed
+    visible: vcn_is_deployed
   vcn_dns_label:
     type: string
     required: true
@@ -350,10 +339,7 @@ variables:
     title: "VCN DNS Label"
     default: "vcn"
     maxLength: 15
-    visible:
-      and:
-        - vcn_is_visible
-        - vcn_is_deployed
+    visible: vcn_is_deployed
   vcn_cidrs:
     type: array
     items:
@@ -362,40 +348,28 @@ variables:
     required: true
     description: "(Updatable) A list of CIDR ranges to use for this VCN"
     default: ["10.0.0.0/16"]
-    visible:
-      and:
-        - vcn_is_visible
-        - vcn_is_deployed
+    visible: vcn_is_deployed
   ng_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your Network Address Translation (NAT) Gateway."
     title: "NAT Gateway Name"
     default: "NAT Gateway"
-    visible:
-      and:
-        - vcn_is_visible
-        - vcn_is_deployed
+    visible: vcn_is_deployed
   sg_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your Service Gateway."
     title: "Service Gateway Name"
     default: "Service Gateway"
-    visible:
-      and:
-        - vcn_is_visible
-        - vcn_is_deployed
+    visible: vcn_is_deployed
   vcn_group_is_deployed:
     type: boolean
     required: true
     description: "Group for users who manage Virtual-Cloud-Network-related operations."
     title: "Deploy Group for VCN?"
-    default: true
-    visible:
-      and:
-        - vcn_is_visible
-        - vcn_is_deployed
+    default: false
+    visible: vcn_is_deployed
   vcn_group_name:
     type: string
     required: true
@@ -404,9 +378,7 @@ variables:
     default: "VirtualCloudNetworkGroup"
     visible:
       and:
-        - and:
-          - vcn_is_visible
-          - vcn_is_deployed
+        - vcn_is_deployed
         - vcn_group_is_deployed
   vcn_group_description:
     type: string
@@ -416,20 +388,18 @@ variables:
     default: "Group for users who manage Virtual-Cloud-Network-related operations."
     visible:
       and:
-        - and:
-          - vcn_is_visible
-          - vcn_is_deployed
+        - vcn_is_deployed
         - vcn_group_is_deployed
   vcn_policy_is_deployed:
     type: boolean
     required: true
     description: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     title: "Deploy Identity and Access Management (IAM) Policies for VCN?"
-    default: true
+    default: false
     visible:
       and:
-        - vcn_is_visible
         - vcn_is_deployed
+        - vcn_group_is_deployed
   vcn_policy_name:
     type: string
     required: true
@@ -438,9 +408,7 @@ variables:
     default: "VirtualCloudNetworkPolicy"
     visible:
       and:
-        - and:
-          - vcn_is_visible
-          - vcn_is_deployed
+        - vcn_is_deployed
         - vcn_policy_is_deployed
   vcn_policy_description:
     type: string
@@ -450,53 +418,30 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - vcn_is_visible
-          - vcn_is_deployed
+        - vcn_is_deployed
         - vcn_policy_is_deployed
 
-  ods_is_visible:
-    type: boolean
-    description: "Build, train, deploy, and manage machine learning models with a data science cloud platform built for teams."
-    title: "OCI Data Science (ODS)"
-    default: false
-  ods_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy ODS?"
-    default: true
-    visible: ods_is_visible
   project_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your ODS Project instance."
     title: "ODS Project Name"
     default: "ODS Project"
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   notebook_session_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your ODS Notebook Session instance."
     title: "ODS Notebook Session Name"
     default: "ODS Notebook Session"
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   notebook_session_notebook_session_configuration_details_shape:
     type: string
     required: true
     description: "(Updatable) The shape used to launch the notebook session compute instance. Review this page for details on allowed shapes: https://docs.oracle.com/en-us/iaas/data-science/using/manage-notebook-sessions.htm"
     title: "ODS Notebook Session Shape"
     default: "VM.Standard2.1"
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   notebook_session_notebook_session_configuration_details_block_storage_size_in_gbs:
     type: integer
     required: true
@@ -505,20 +450,14 @@ variables:
     default: 100
     minimum: 50
     maximum: 32000
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   ods_subnet_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your ODS Subnet."
     title: "ODS Subnet Name"
     default: "ODS Subnet"
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   ods_subnet_dns_label:
     type: string
     required: true
@@ -526,10 +465,7 @@ variables:
     title: "ODS Subnet DNS Label"
     default: "ods-sub"
     maxLength: 15
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   ods_subnet_cidr:
     type: string
     required: true
@@ -537,40 +473,28 @@ variables:
     title: "ODS Subnet CIDR"
     default: "10.0.0.0/24"
     pattern: "^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\/(3[0-2]|[1-2]?[0-9])$"
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   ods_rt_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for the Route Table that will be associated with your ODS Subnet."
     title: "ODS Route Table Name"
     default: "ODS Route Table"
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   ods_sl_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for the Security List that will be associated with your ODS Subnet."
     title: " ODS Security List Name"
     default: "ODS Security List"
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   ods_group_is_deployed:
     type: boolean
     required: true
     description: "Group for users who manage Data-Science-related operations."
     title: "Deploy Group for ODS?"
-    default: true
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    default: false
+    visible: ods_is_deployed
   ods_group_name:
     type: string
     required: true
@@ -579,9 +503,7 @@ variables:
     default: "DataScienceGroup"
     visible:
       and:
-        - and:
-          - ods_is_visible
-          - ods_is_deployed
+        - ods_is_deployed
         - ods_group_is_deployed
   ods_group_description:
     type: string
@@ -591,9 +513,7 @@ variables:
     default: "Group for users who manage Data-Science-related operations."
     visible:
       and:
-        - and:
-          - ods_is_visible
-          - ods_is_deployed
+        - ods_is_deployed
         - ods_group_is_deployed
   ods_dynamic_group_is_deployed:
     type: boolean
@@ -601,10 +521,7 @@ variables:
     description: "Group defined by a rule that matches particular resource-types within a given compartment."
     title: "Deploy Dynamic Group for ODS?"
     default: true
-    visible:
-      and:
-        - ods_is_visible
-        - ods_is_deployed
+    visible: ods_is_deployed
   ods_dynamic_group_name:
     type: string
     required: true
@@ -613,9 +530,7 @@ variables:
     default: "DataScienceDynamicGroup"
     visible:
       and:
-        - and:
-          - ods_is_visible
-          - ods_is_deployed
+        - ods_is_deployed
         - ods_dynamic_group_is_deployed
   ods_dynamic_group_description:
     type: string
@@ -625,9 +540,7 @@ variables:
     default: "Group defined by a rule that matches particular resource-types within a given compartment."
     visible:
       and:
-        - and:
-          - ods_is_visible
-          - ods_is_deployed
+        - ods_is_deployed
         - ods_dynamic_group_is_deployed
   ods_policy_is_deployed:
     type: boolean
@@ -637,7 +550,9 @@ variables:
     default: true
     visible:
       and:
-        - ods_is_visible
+        - or:
+          - ods_dynamic_group_is_deployed
+          - ods_group_is_deployed
         - ods_is_deployed
   ods_policy_name:
     type: string
@@ -647,9 +562,7 @@ variables:
     default: "DataSciencePolicy"
     visible:
       and:
-        - and:
-          - ods_is_visible
-          - ods_is_deployed
+        - ods_is_deployed
         - ods_policy_is_deployed
   ods_policy_description:
     type: string
@@ -659,43 +572,23 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - ods_is_visible
-          - ods_is_deployed
+        - ods_is_deployed
         - ods_policy_is_deployed
 
-  odi_is_visible:
-    type: boolean
-    description: "Extract, transform and load (ETL) data for data science and analytics. Design code-free data flows into data lakes and data marts."
-    title: "OCI Data Integration (ODI)"
-    default: false
-  odi_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy ODI?"
-    default: true
-    visible: odi_is_visible
   odi_workspace_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your ODI Workspace instance."
     title: "ODI Workspace Name"
     default: "ODI Workspace"
-    visible:
-      and:
-        - odi_is_visible
-        - odi_is_deployed
+    visible: odi_is_deployed
   workspace_is_private_network_enabled:
     type: boolean
     required: true
     description: "If true, the ODI Workspace will be provisioned in a VCN, where an OCI user with permissions can customize access to services. If false, the ODI Workspace will be provisioned in an environment that is inaccessible to OCI users, with fixed access to services."
     title: "ODI Workspace - Enable Private Network?"
     default: true
-    visible:
-      and:
-        - odi_is_visible
-        - odi_is_deployed
+    visible: odi_is_deployed
   odi_subnet_display_name:
     type: string
     required: true
@@ -704,9 +597,7 @@ variables:
     default: "ODI Subnet"
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - workspace_is_private_network_enabled
   odi_subnet_dns_label:
     type: string
@@ -717,9 +608,7 @@ variables:
     maxLength: 15
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - workspace_is_private_network_enabled
   odi_subnet_cidr:
     type: string
@@ -730,9 +619,7 @@ variables:
     pattern: "^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\/(3[0-2]|[1-2]?[0-9])$"
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - workspace_is_private_network_enabled
   odi_rt_display_name:
     type: string
@@ -742,9 +629,7 @@ variables:
     default: "ODI Route Table"
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - workspace_is_private_network_enabled
   odi_sl_display_name:
     type: string
@@ -754,9 +639,7 @@ variables:
     default: "ODI Security List"
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - workspace_is_private_network_enabled
   odi_group_is_deployed:
     type: boolean
@@ -764,10 +647,7 @@ variables:
     description: "Group for users who manage Data-Integration-related operations."
     title: "Deploy Group for ODI?"
     default: true
-    visible:
-      and:
-        - odi_is_visible
-        - odi_is_deployed
+    visible: odi_is_deployed
   odi_group_name:
     type: string
     required: true
@@ -776,9 +656,7 @@ variables:
     default: "DataIntegrationGroup"
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - odi_group_is_deployed
   odi_group_description:
     type: string
@@ -788,9 +666,7 @@ variables:
     default: "Group for users who manage Data-Integration-related operations."
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - odi_group_is_deployed
   odi_dynamic_group_is_deployed:
     type: boolean
@@ -798,10 +674,7 @@ variables:
     description: "Group defined by a rule that matches particular resource-types within a given compartment."
     title: "Deploy Dynamic Group for ODI?"
     default: true
-    visible:
-      and:
-        - odi_is_visible
-        - odi_is_deployed
+    visible: odi_is_deployed
   odi_dynamic_group_name:
     type: string
     required: true
@@ -810,9 +683,7 @@ variables:
     default: "DataIntegrationDynamicGroup"
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - odi_dynamic_group_is_deployed
   odi_dynamic_group_description:
     type: string
@@ -822,9 +693,7 @@ variables:
     default: "Group defined by a rule that matches particular resource-types within a given compartment."
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - odi_dynamic_group_is_deployed
   odi_policy_is_deployed:
     type: boolean
@@ -834,8 +703,10 @@ variables:
     default: true
     visible:
       and:
-        - odi_is_visible
-        - odi_is_deployed
+        - and:
+          - odi_is_deployed
+          - odi_group_is_deployed
+        - odi_dynamic_group_is_deployed
   odi_policy_name:
     type: string
     required: true
@@ -844,9 +715,7 @@ variables:
     default: "DataIntegrationPolicy"
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - odi_policy_is_deployed
   odi_policy_description:
     type: string
@@ -856,23 +725,9 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - odi_is_visible
-          - odi_is_deployed
+        - odi_is_deployed
         - odi_policy_is_deployed
 
-  adw_is_visible:
-    type: boolean
-    description: "Managed data warehouse service that automates provisioning, configuring, securing, tuning, scaling, and backing up of the data warehouse. It includes tools for self-service data loading, data transformations, business models, automatic insights, and built-in converged database capabilities that enable simpler queries across multiple data types and machine learning analysis."
-    title: "Autonomous Data Warehouse (ADW)"
-    default: false
-  adw_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy ADW?"
-    default: true
-    visible: adw_is_visible
   autonomous_database_admin_password:
     type: string
     required: true
@@ -881,10 +736,7 @@ variables:
     default: "Welcome!2345"
     pattern: "^(?=.{12,30})(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*+=])[^\\s\"']*$"
     sensitive: true
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_cpu_core_count:
     type: integer
     required: true
@@ -893,30 +745,21 @@ variables:
     default: 2
     minimum: 1
     maximum: 128
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_db_version:
     type: string
     required: true
     description: "(Updatable) A valid Oracle Database version for Autonomous Database."
     title: "ADW DB Version"
     default: "19c"
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_is_auto_scaling_enabled:
     type: string
     required: true
     description: "(Updatable) Indicates if auto scaling is enabled for the Autonomous Database OCPU core count."
     title: "Enable Auto-Scaling"
     default: false
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_data_storage_size_in_tbs:
     type: integer
     required: true
@@ -925,10 +768,7 @@ variables:
     default: 1
     minimum: 1
     maximum: 32
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_db_workload:
     type: enum
     enum:
@@ -947,10 +787,7 @@ variables:
     description: "(Updatable) User-friendly name for your ADW instance."
     title: "ADW Name"
     default: "ADW"
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_db_name:
     type: string
     required: true
@@ -958,10 +795,7 @@ variables:
     title: "ADW DB Name"
     default: "adw"
     pattern: "^[a-zA-Z][a-zA-Z0-9]{0,13}$"
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_license_model:
     type: enum
     enum:
@@ -971,10 +805,7 @@ variables:
     description: "(Updatable) The Oracle license model that applies to the ADW."
     title: "ADW License Model"
     default: LICENSE_INCLUDED
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_data_safe_status:
     type: enum
     enum:
@@ -984,10 +815,7 @@ variables:
     description: "(Updatable) Status of the Data Safe registration for this ADW instance."
     title: "ADW Data Safe Status"
     default: NOT_REGISTERED
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   autonomous_database_whitelisted_ips:
     type: array
     items:
@@ -997,20 +825,14 @@ variables:
     description: "(Updatable) The client IP access control list (ACL). This feature is available for autonomous databases on shared Exadata infrastructure and on Exadata Cloud@Customer. Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance."
     title: "ADW Whitelisted IPs"
     default: ["0.0.0.0/0"]
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    visible: adw_is_deployed
   adw_group_is_deployed:
     type: boolean
     required: true
     description: "Group for users who manage Autonomous-Data-Warehouse-related operations."
     title: "Deploy Group for ADW?"
-    default: true
-    visible:
-      and:
-        - adw_is_visible
-        - adw_is_deployed
+    default: false
+    visible: adw_is_deployed
   adw_group_name:
     type: string
     required: true
@@ -1018,9 +840,7 @@ variables:
     default: "AutonomousDataWarehouseGroup"
     visible:
       and:
-        - and:
-          - adw_is_visible
-          - adw_is_deployed
+        - adw_is_deployed
         - adw_group_is_deployed
   adw_group_description:
     type: string
@@ -1030,20 +850,18 @@ variables:
     default: "Group for users who manage Autonomous-Data-Warehouse-related operations."
     visible:
       and:
-        - and:
-          - adw_is_visible
-          - adw_is_deployed
+        - adw_is_deployed
         - adw_group_is_deployed
   adw_policy_is_deployed:
     type: boolean
     required: true
     description: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     title: "Deploy Identity and Access Management (IAM) Policies for ADW?"
-    default: true
+    default: false
     visible:
       and:
-        - adw_is_visible
         - adw_is_deployed
+        - adw_group_is_deployed
   adw_policy_name:
     type: string
     required: true
@@ -1052,9 +870,7 @@ variables:
     default: "AutonomousDataWarehousePolicy"
     visible:
       and:
-        - and:
-          - adw_is_visible
-          - adw_is_deployed
+        - adw_is_deployed
         - adw_policy_is_deployed
   adw_policy_description:
     type: string
@@ -1064,23 +880,9 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - adw_is_visible
-          - adw_is_deployed
+        - adw_is_deployed
         - adw_policy_is_deployed
 
-  oac_is_visible:
-    type: boolean
-    description: "Provides the capabilities required to address the entire analytics process from data ingestion and modeling, through data preparation and enrichment, to visualization and collaboration without compromising security and governance."
-    title: "Oracle Analytics Cloud (OAC)"
-    default: false
-  oac_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy OAC?"
-    default: true
-    visible: oac_is_visible
   analytics_instance_idcs_access_token:
     type: string
     required: true
@@ -1096,10 +898,7 @@ variables:
     description: "The capacity model to use for service instance capacity metadata (e.g.: OLPU count, number of users, etc.)"
     title: "OAC Capacity Type"
     default: OLPU_COUNT
-    visible:
-      and:
-        - oac_is_visible
-        - oac_is_deployed
+    visible: oac_is_deployed
   analytics_instance_capacity_capacity_value:
     type: integer
     required: true
@@ -1108,10 +907,7 @@ variables:
     default: 2
     minimum: 1
     maximum: 128
-    visible:
-      and:
-        - oac_is_visible
-        - oac_is_deployed
+    visible: oac_is_deployed
   analytics_instance_feature_set:
     type: enum
     enum:
@@ -1120,10 +916,7 @@ variables:
     description: "The value to assign to the feature_set property of this AnalyticsInstance."
     title: "OAC Feature Set"
     default: ENTERPRISE_ANALYTICS
-    visible:
-      and:
-        - oac_is_visible
-        - oac_is_deployed
+    visible: oac_is_deployed
   analytics_instance_license_type:
     type: enum
     enum:
@@ -1133,10 +926,7 @@ variables:
     description: "(Updatable) The Oracle license model that applies to the OAC instance."
     title: "OAC License Model"
     default: LICENSE_INCLUDED
-    visible:
-      and:
-        - oac_is_visible
-        - oac_is_deployed
+    visible: oac_is_deployed
   analytics_instance_name:
     type: string
     required: true
@@ -1144,20 +934,14 @@ variables:
     title: "OAC Name"
     default: "OAC"
     pattern: "^[a-zA-Z][a-zA-Z0-9]*$"
-    visible:
-      and:
-        - oac_is_visible
-        - oac_is_deployed
+    visible: oac_is_deployed
   oac_group_is_deployed:
     type: boolean
     required: true
     description: "Name for group for users who manage Analytics-Cloud-related operations."
     title: "Deploy Group for OAC?"
-    default: true
-    visible:
-      and:
-        - oac_is_visible
-        - oac_is_deployed
+    default: false
+    visible: oac_is_deployed
   oac_group_name:
     type: string
     required: true
@@ -1166,9 +950,7 @@ variables:
     default: "AnalyticsCloudGroup"
     visible:
       and:
-        - and:
-          - oac_is_visible
-          - oac_is_deployed
+        - oac_is_deployed
         - oac_group_is_deployed
   oac_group_description:
     type: string
@@ -1178,20 +960,18 @@ variables:
     default: "Group for users who manage Analytics-Cloud-related operations."
     visible:
       and:
-        - and:
-          - oac_is_visible
-          - oac_is_deployed
+        - oac_is_deployed
         - oac_group_is_deployed
   oac_policy_is_deployed:
     type: boolean
     required: true
     description: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     title: "Deploy Identity and Access Management (IAM) Policies for OAC?"
-    default: true
+    default: false
     visible:
       and:
-        - oac_is_visible
         - oac_is_deployed
+        - oac_group_is_deployed
   oac_policy_name:
     type: string
     required: true
@@ -1200,9 +980,7 @@ variables:
     default: "AnalyticsCloudPolicy"
     visible:
       and:
-        - and:
-          - oac_is_visible
-          - oac_is_deployed
+        - oac_is_deployed
         - oac_policy_is_deployed
   oac_policy_description:
     type: string
@@ -1212,33 +990,16 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - oac_is_visible
-          - oac_is_deployed
+        - oac_is_deployed
         - oac_policy_is_deployed
 
-  bucket_is_visible:
-    type: boolean
-    description: "Securely store any type of data in its native format, with built-in redundancy."
-    title: "Object Storage Bucket"
-    default: false
-  bucket_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy Bucket?"
-    default: true
-    visible: bucket_is_visible
   bucket_name:
     type: string
     required: true
     description: "The name of the Bucket. Valid characters are uppercase or lowercase letters, numbers, hyphens, underscores, and periods. Bucket names must be unique within an Object Storage"
     title: "Bucket Name"
     default: "Bucket"
-    visible:
-      and:
-        - bucket_is_visible
-        - bucket_is_deployed
+    visible: bucket_is_deployed
     pattern: "^[_\\-a-zA-Z0-9\\.]*$"
   bucket_access_type:
     type: enum
@@ -1250,10 +1011,7 @@ variables:
     description: "(Updatable) The type of public access enabled on this bucket. A bucket is set to \"NoPublicAccess\" by default, which only allows an authenticated caller to access the bucket and its contents. When \"ObjectRead\" is enabled on the bucket, public access is allowed for the \"GetObject\", \"HeadObject\", and \"ListObjects\" operations. When \"ObjectReadWithoutList\" is enabled on the bucket, public access is allowed for the \"GetObject\" and \"HeadObject\" operations."
     title: "Bucket Access Type"
     default: NoPublicAccess
-    visible:
-      and:
-        - bucket_is_visible
-        - bucket_is_deployed
+    visible: bucket_is_deployed
   bucket_storage_tier:
     type: enum
     enum:
@@ -1263,10 +1021,7 @@ variables:
     description: "The storage tier of the bucket. The Standard storage tier is \"hot\" storage used for data that you need to access quickly, immediately, and frequently. The Archive storage tier is \"cold\" storage used for data seldom or rarely access, but that must be retained and preserved for long periods of time."
     title: "Bucket Access Type"
     default: Standard
-    visible:
-      and:
-        - bucket_is_visible
-        - bucket_is_deployed
+    visible: bucket_is_deployed
   bucket_versioning:
     type: enum
     enum:
@@ -1276,20 +1031,14 @@ variables:
     description: "(Updatable) Use this option to enable versioning during bucket creation. Objects in a version enabled bucket are protected from overwrites and deletions. Previous versions of the same object will be available in the bucket."
     title: "Bucket Versioning"
     default: Disabled
-    visible:
-      and:
-        - bucket_is_visible
-        - bucket_is_deployed
+    visible: bucket_is_deployed
   bucket_group_is_deployed:
     type: boolean
     required: true
     description: "Group for users who manage Bucket-related operations."
     title: "Deploy Group for Bucket?"
     default: true
-    visible:
-      and:
-        - bucket_is_visible
-        - bucket_is_deployed
+    visible: bucket_is_deployed
   bucket_group_name:
     type: string
     required: true
@@ -1298,9 +1047,7 @@ variables:
     default: "BucketGroup"
     visible:
       and:
-        - and:
-          - bucket_is_visible
-          - bucket_is_deployed
+        - bucket_is_deployed
         - bucket_group_is_deployed
   bucket_group_description:
     type: string
@@ -1310,9 +1057,7 @@ variables:
     default: "Group for users who manage Bucket-related operations."
     visible:
       and:
-        - and:
-          - bucket_is_visible
-          - bucket_is_deployed
+        - bucket_is_deployed
         - bucket_group_is_deployed
   bucket_policy_is_deployed:
     type: boolean
@@ -1322,8 +1067,8 @@ variables:
     default: true
     visible:
       and:
-        - bucket_is_visible
         - bucket_is_deployed
+        - bucket_group_is_deployed
   bucket_policy_name:
     type: string
     required: true
@@ -1332,9 +1077,7 @@ variables:
     default: "BucketPolicy"
     visible:
       and:
-        - and:
-          - bucket_is_visible
-          - bucket_is_deployed
+        - bucket_is_deployed
         - bucket_policy_is_deployed
   bucket_policy_description:
     type: string
@@ -1344,43 +1087,23 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - bucket_is_visible
-          - bucket_is_deployed
+        - bucket_is_deployed
         - bucket_policy_is_deployed
 
-  datacatalog_is_visible:
-    type: boolean
-    description: "Metadata management service that helps data professionals discover data and support data governance. Designed specifically to work well with the Oracle ecosystem, it provides an inventory of assets, a business glossary, and a common metastore for data lakes."
-    title: "OCI Data Catalog"
-    default: false
-  datacatalog_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy Data Catalog?"
-    default: true
-    visible: datacatalog_is_visible
   datacatalog_display_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your Data Catalog instance."
     title: "Data Catalog Name"
     default: "Data Catalog"
-    visible:
-      and:
-        - datacatalog_is_visible
-        - datacatalog_is_deployed
+    visible: datacatalog_is_deployed
   datacatalog_group_is_deployed:
     type: boolean
     required: true
     description: "Check the box for \"Yes\"."
     title: "Deploy Group for Data Catalog?"
     default: true
-    visible:
-      and:
-        - datacatalog_is_visible
-        - datacatalog_is_deployed
+    visible: datacatalog_is_deployed
   datacatalog_group_name:
     type: string
     required: true
@@ -1389,9 +1112,7 @@ variables:
     default: "DataCatalogGroup"
     visible:
       and:
-        - and:
-          - datacatalog_is_visible
-          - datacatalog_is_deployed
+        - datacatalog_is_deployed
         - datacatalog_group_is_deployed
   datacatalog_group_description:
     type: string
@@ -1401,9 +1122,7 @@ variables:
     default: "Group for users who manage Data-Catalog-related operations."
     visible:
       and:
-        - and:
-          - datacatalog_is_visible
-          - datacatalog_is_deployed
+        - datacatalog_is_deployed
         - datacatalog_group_is_deployed
   datacatalog_dynamic_group_is_deployed:
     type: boolean
@@ -1411,10 +1130,7 @@ variables:
     description: "Group defined by a rule that matches particular resource-types within a given compartment."
     title: "Deploy Dynamic Group for Data Catalog?"
     default: true
-    visible:
-      and:
-        - datacatalog_is_visible
-        - datacatalog_is_deployed
+    visible: datacatalog_is_deployed
   datacatalog_dynamic_group_name:
     type: string
     required: true
@@ -1423,9 +1139,7 @@ variables:
     default: "DataCatalogDynamicGroup"
     visible:
       and:
-        - and:
-          - datacatalog_is_visible
-          - datacatalog_is_deployed
+        - datacatalog_is_deployed
         - datacatalog_dynamic_group_is_deployed
   datacatalog_dynamic_group_description:
     type: string
@@ -1435,9 +1149,7 @@ variables:
     default: "Group defined by a rule that matches particular resource-types within a given compartment."
     visible:
       and:
-        - and:
-          - datacatalog_is_visible
-          - datacatalog_is_deployed
+        - datacatalog_is_deployed
         - datacatalog_dynamic_group_is_deployed
   datacatalog_policy_is_deployed:
     type: boolean
@@ -1447,8 +1159,10 @@ variables:
     default: true
     visible:
       and:
-        - datacatalog_is_visible
-        - datacatalog_is_deployed
+        - and:
+          - datacatalog_is_deployed
+          - datacatalog_group_is_deployed
+        - datacatalog_dynamic_group_is_deployed
   datacatalog_policy_name:
     type: string
     required: true
@@ -1457,9 +1171,7 @@ variables:
     default: "DataCatalogPolicy"
     visible:
       and:
-        - and:
-          - datacatalog_is_visible
-          - datacatalog_is_deployed
+        - datacatalog_is_deployed
         - datacatalog_policy_is_deployed
   datacatalog_policy_description:
     type: string
@@ -1469,43 +1181,23 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - datacatalog_is_visible
-          - datacatalog_is_deployed
+        - datacatalog_is_deployed
         - datacatalog_policy_is_deployed
 
-  streaming_is_visible:
-    type: boolean
-    description: "Real-time, serverless, Apache Kafka-compatible event streaming platform for developers and data scientists."
-    title: "Stream and Stream Pool"
-    default: false
-  streaming_is_deployed:
-    type: boolean
-    required: true
-    description: "Check the box for \"Yes\"."
-    title: "Deploy Streaming?"
-    default: true
-    visible: streaming_is_visible
   stream_pool_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your Stream Pool instance."
     title: "Stream Pool Name"
     default: "Stream Pool"
-    visible:
-      and:
-        - streaming_is_visible
-        - streaming_is_deployed
+    visible: streaming_is_deployed
   stream_name:
     type: string
     required: true
     description: "(Updatable) User-friendly name for your Stream instance."
     title: "Stream Name"
     default: "Stream"
-    visible:
-      and:
-        - streaming_is_visible
-        - streaming_is_deployed
+    visible: streaming_is_deployed
   stream_partitions:
     type: integer
     required: true
@@ -1514,10 +1206,7 @@ variables:
     default: 2
     minimum: 0
     maximum: 5
-    visible:
-      and:
-        - streaming_is_visible
-        - streaming_is_deployed
+    visible: streaming_is_deployed
   stream_retention_in_hours:
     type: integer
     required: true
@@ -1526,20 +1215,14 @@ variables:
     default: 168
     minimum: 24
     maximum: 168
-    visible:
-      and:
-        - streaming_is_visible
-        - streaming_is_deployed
+    visible: streaming_is_deployed
   streaming_group_is_deployed:
     type: boolean
     required: true
     description: "Group for users who manage Streaming-related operations."
     title: "Deploy Group for Streaming?"
     default: true
-    visible:
-      and:
-        - streaming_is_visible
-        - streaming_is_deployed
+    visible: streaming_is_deployed
   streaming_group_name:
     type: string
     required: true
@@ -1548,9 +1231,7 @@ variables:
     default: "StreamingGroup"
     visible:
       and:
-        - and:
-          - streaming_is_visible
-          - streaming_is_deployed
+        - streaming_is_deployed
         - streaming_group_is_deployed
   streaming_group_description:
     type: string
@@ -1560,9 +1241,7 @@ variables:
     default: "Group for users who manage Streaming-related operations."
     visible:
       and:
-        - and:
-          - streaming_is_visible
-          - streaming_is_deployed
+        - streaming_is_deployed
         - streaming_group_is_deployed
   streaming_policy_is_deployed:
     type: boolean
@@ -1572,8 +1251,8 @@ variables:
     default: true
     visible:
       and:
-        - streaming_is_visible
         - streaming_is_deployed
+        - streaming_group_is_deployed
   streaming_policy_name:
     type: string
     required: true
@@ -1582,9 +1261,7 @@ variables:
     default: "StreamingPolicy"
     visible:
       and:
-        - and:
-          - streaming_is_visible
-          - streaming_is_deployed
+        - streaming_is_deployed
         - streaming_policy_is_deployed
   streaming_policy_description:
     type: string
@@ -1594,7 +1271,5 @@ variables:
     default: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     visible:
       and:
-        - and:
-          - streaming_is_visible
-          - streaming_is_deployed
+        - streaming_is_deployed
         - streaming_policy_is_deployed

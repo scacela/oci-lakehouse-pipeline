@@ -1,4 +1,4 @@
-# oci-streaming-pipeline
+# oci-lakehouse-pipeline
 Deploy a pipeline for streaming, warehousing, processing and analyzing data.
 
 ### What can the stack provision?
@@ -73,10 +73,68 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 
 
 ### Deployment via Resource Manager
+For general Resource Manager deployment steps, follow the steps outlined in [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4).
 
 
 1. Click [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.0.zip)
-2. Follow the steps outlined in [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4), starting from Step 2.
+2. Log into your Oracle Cloud Infrastructure (OCI) tenancy with your user credentials. You will then be redirected to the `Stack information` section of Resource Manager.
+3. In the `Stack Information` section, select the box to confirm that you accept the [Oracle Terms of Use](https://cloudmarketplace.oracle.com/marketplace/content?contentId=50511634&render=inline).
+4. Click `Next` to proceed to the `Configure Variables` section.
+5. If Oracle Analytics Cloud (OAC) will be part of your deployment, follow the steps available in the dropdown below.
+<details>
+	<summary>
+		For OAC Deployment: Generate an Access Token
+	</summary>
+	1. Duplicate your browser tab.
+	2. Click the Hamburger icon at the top-left of the OCI UI.
+	3. Type `federation`, and click `Federation` on the right-hand side of the page once it auto-populates.
+	4. Click the hyperlinked name of your identity provider of type IDCS (Oracle Identity Cloud Service).
+	5. Click the link next to `Oracle Identity Cloud Service Console:`
+	6. Follow the steps available in the dropdown below to create an IDCS Application that can be used to generate access tokens.
+	<details>
+		<summary>
+			One-Time Only: Generate an IDCS Application
+		</summary>
+		1. Click the `+` icon on the card labeled, `Applications and Services` to add an IDCS Application.
+		2. Click `Confidential Application`
+		3. In the `Details` section, enter a name e.g.: `Analytics_Token_App`, then click `Next`.
+		4. In the `Client` section, choose the option to `Configure this application as a client now`.
+		5. Select the following options for `Allowed Grant Types`:
+		- `Resource Owner`
+		- `Client Credentials`
+		- `JWT Assertion`
+		6. For `Allowed Operations`, select `On behalf Of`
+		7. For `Grant the client access to Identity Cloud Service Admin APIs`, click `Add` and select `Me` from the popup window, and click `Add`.
+		8. Click `Next` to proceed to the `Resources` section. Choose the option to `Skip for later` to skip configuring this application as a resource server.
+		9. Click `Next` to proceed to the `Web Tier Policy` section. Choose the option to `Skip for later` to skip configuring the Web Tier Policy for this application.
+		10. Click `Next` to proceed to the `Authorization` section. Choose the option to `Skip for later` to skip enforcing grants as authorization.
+		11. Click `Finish`, and then click `Close` to exit the `Application Added` popup window.
+		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application be used to generate tokens.
+	</details>
+	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be found from:
+	```
+	Hamburger menu > Applications > (search for your application).
+	```
+	8. Choose the option for `Customized Scopes`, and then click `Download Token`. This will initiate the download of a token file to your local machine called `tokens.tok`.
+	9. Open `tokens.tok` from your download location, using a text editor, and from its contents, copy to your clipboard the string of characters represented as `<VALUE>` in: `{"app_access_token":"<VALUE>"}`
+On your first tab, paste the contents of your clipboard into the `OAC IDCS Access Token` field.
+</details>
+6. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
+7. Select the checkbox for `Run Apply`, and click `Create`.
+8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following the steps available in the dropdown below.
+<details>
+	<summary>
+		Access Your Resources
+	</summary>
+	1. Click `Outputs` to open a page that shows the identifiers of the resources that were provisioned.
+	2. For each resource that you wish to access, do the following:
+		a. Copy to your clipboard its identifier from under the `Value` column.
+		b. Duplicate your browser tab
+		c. Paste the identifier from your clipboard into the search field at the top of the OCI UI.
+		d. Click the listing that appears.
+</details>
+make sure that the corresponding checkbox is selected in the `Select Resources` tile, and scroll to the `OAC IDCS Access Token` field.
+3. For OAC deployment, generate an acces token.
 
 ### Deployment via CLI Terraform
 

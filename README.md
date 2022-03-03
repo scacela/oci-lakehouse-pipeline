@@ -126,7 +126,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be accessed as follows:
 	```
 
-	Hamburger menu > Applications > (Search for your application) > (Click the IDCS Application listing)
+	Hamburger menu > Applications > (Search for your application) > (Click your IDCS Application listing)
 	
 	```
 	8. Choose the option for `Customized Scopes`, and then click `Download Token`. This will initiate the download of a token file to your local machine called `tokens.tok`.

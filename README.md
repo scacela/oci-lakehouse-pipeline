@@ -110,7 +110,6 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application be used to generate tokens.
 	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be found from:
 \
-\
 	```
 	Hamburger menu > Applications > (search for your application).
 	```

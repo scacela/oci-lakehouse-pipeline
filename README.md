@@ -84,7 +84,6 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 	\
 	\
 	<b>For OAC Deployment: Generate an Access Token</b>
-\
 	1. Duplicate your browser tab, and switch to that tab.
 	2. Click the Hamburger icon at the top-left of the OCI UI.
 	3. Type `federation`, and click `Federation` on the right-hand side of the page once it auto-populates.
@@ -94,7 +93,6 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 		\
 		\
 		<b>One-Time Only: Generate an IDCS Application</b>
-\
 		1. Click the `+` icon on the card labeled, `Applications and Services` to add an IDCS Application.
 		2. Click `Confidential Application`
 		3. In the `Details` section, enter a name e.g.: `Analytics_Token_App`, then click `Next`.
@@ -103,7 +101,7 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 			- `Resource Owner`
 			- `Client Credentials`
 			- `JWT Assertion`
-		6. For `Allowed Operations`, select `On behalf Of`
+		6. For `Allowed Operations`, select `On behalf Of`.
 		7. For `Grant the client access to Identity Cloud Service Admin APIs`, click `Add` and select `Me` from the popup window, and click `Add`.
 		8. Click `Next` to proceed to the `Resources` section. Choose the option to `Skip for later` to skip configuring this application as a resource server.
 		9. Click `Next` to proceed to the `Web Tier Policy` section. Choose the option to `Skip for later` to skip configuring the Web Tier Policy for this application.
@@ -111,6 +109,7 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 		11. Click `Finish`, and then click `Close` to exit the `Application Added` popup window.
 		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application be used to generate tokens.
 	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be found from:
+	
 	```
 	Hamburger menu > Applications > (search for your application).
 	```
@@ -123,7 +122,6 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 	\
 	\
 	<b>Access Your Resources</b>
-\
 	1. Click `Outputs` to open a page that shows the identifiers of the resources that were provisioned.
 	2. For each resource that you wish to access, do the following:
 		1. Copy to your clipboard its identifier from under the `Value` column.

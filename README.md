@@ -94,7 +94,7 @@ For general Resource Manager deployment steps, you can refer to [this documentat
 Optionally, you can customize the attributes of each selected resource once its respective "details" tile appears below.
 \
 \
-If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, follow these sub-steps:
+If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, follow this sub-steps series:
 \
 \
 	<b>Generate an Access Token for OAC Deployment:</b>
@@ -103,7 +103,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 	3. Type `federation`, and click `Federation` on the right-hand side of the page once it auto-populates.
 	4. Click the hyperlinked name of your identity provider of type IDCS (Oracle Identity Cloud Service).
 	5. Click the link next to `Oracle Identity Cloud Service Console:`
-	6. To create an IDCS Application that can be used to generate access tokens, follow these sub-steps:
+	6. To create an IDCS Application that can be used to generate access tokens, follow this sub-steps series:
 \
 \
 		<b>(One-Time Only) Generate an IDCS Application:</b>
@@ -122,6 +122,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 		10. Click `Next` to proceed to the `Authorization` section. Choose the option to `Skip for later` to skip enforcing grants as authorization.
 		11. Click `Finish`, and then click `Close` to exit the `Application Added` popup window.
 		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application be used to generate tokens.
+		
 	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be accessed as follows:
 	```
 
@@ -134,7 +135,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 
 6. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
 7. Select the checkbox for `Run Apply`, and click `Create`.
-8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following these sub-steps:
+8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following this sub-steps series:
 \
 \
 	<b>Access Your Resources:</b>

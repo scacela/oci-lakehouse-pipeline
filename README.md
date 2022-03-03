@@ -91,7 +91,6 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 	4. Click the hyperlinked name of your identity provider of type IDCS (Oracle Identity Cloud Service).
 	5. Click the link next to `Oracle Identity Cloud Service Console:`
 	6. To create an IDCS Application that can be used to generate access tokens, follow the sub-steps:
-	</p>
 \
 \
 		<b>One-Time Only: Generate an IDCS Application</b>

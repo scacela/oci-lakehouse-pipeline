@@ -80,7 +80,7 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 2. Log into your Oracle Cloud Infrastructure (OCI) tenancy with your user credentials. You will then be redirected to the `Stack information` section of Resource Manager.
 3. In the `Stack Information` section, select the box to confirm that you accept the [Oracle Terms of Use](https://cloudmarketplace.oracle.com/marketplace/content?contentId=50511634&render=inline).
 4. Click `Next` to proceed to the `Configure Variables` section.
-5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile. If Oracle Analytics Cloud (OAC) is one of the resources you wish to deploy, follow the sub-steps:
+5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile. If Oracle Analytics Cloud (OAC) is one of the resources you wish to deploy, follow these sub-steps:
 \
 \
 	<b>For OAC Deployment: Generate an Access Token</b>
@@ -89,7 +89,7 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 	3. Type `federation`, and click `Federation` on the right-hand side of the page once it auto-populates.
 	4. Click the hyperlinked name of your identity provider of type IDCS (Oracle Identity Cloud Service).
 	5. Click the link next to `Oracle Identity Cloud Service Console:`
-	6. To create an IDCS Application that can be used to generate access tokens, follow the sub-steps:
+	6. To create an IDCS Application that can be used to generate access tokens, follow these sub-steps:
 \
 \
 		<b>One-Time Only: Generate an IDCS Application</b>
@@ -117,10 +117,10 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 	8. Choose the option for `Customized Scopes`, and then click `Download Token`. This will initiate the download of a token file to your local machine called `tokens.tok`.
 	9. Open `tokens.tok` from your download location, using a text editor, and from its contents, copy to your clipboard the string of characters represented as `<VALUE>` in: `{"app_access_token":"<VALUE>"}`
 	10. On your first tab, paste the contents of your clipboard into the `OAC IDCS Access Token` field.
-	
+
 6. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
 7. Select the checkbox for `Run Apply`, and click `Create`.
-8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following the steps available in the dropdown below.
+8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following these sub-steps:
 \
 \
 	<b>Access Your Resources</b>

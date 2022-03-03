@@ -156,6 +156,9 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 cd &ltYOUR_PATH_TO_THIS_PROJECT&gt
 </pre>
 4. Open your local copy of [vars.tf](./vars.tf) and edit the values that are assigned to the objects of type variable, which will influence the stack topology according to your preferences.
+\
+\
+If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an access token to use for the `OAC IDCS Access Token` field. To walk through this process, please follow the sub-steps series in Step 5. of the [Resource Manager deployment steps](#deployment-via-resource-manager).
 5. Initialize your Terraform project, downloading necessary packages for the deployment.
 <pre>
 terraform init

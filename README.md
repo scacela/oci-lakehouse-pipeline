@@ -117,6 +117,7 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 	8. Choose the option for `Customized Scopes`, and then click `Download Token`. This will initiate the download of a token file to your local machine called `tokens.tok`.
 	9. Open `tokens.tok` from your download location, using a text editor, and from its contents, copy to your clipboard the string of characters represented as `<VALUE>` in: `{"app_access_token":"<VALUE>"}`
 	10. On your first tab, paste the contents of your clipboard into the `OAC IDCS Access Token` field.
+	
 6. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
 7. Select the checkbox for `Run Apply`, and click `Create`.
 8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following the steps available in the dropdown below.

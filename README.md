@@ -124,6 +124,8 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 \
 \
 	<b>Access Your Resources:</b>
+	<b></b>
+	<b></b>
 	1. Click `Outputs` to open a page that shows the identifiers of the resources that were provisioned.
 	2. For each resource that you wish to access, do the following:
 		1. Copy to your clipboard its identifier from under the `Value` column.

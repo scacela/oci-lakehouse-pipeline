@@ -1,6 +1,11 @@
 # oci-lakehouse-pipeline
 Deploy a pipeline for streaming, warehousing, processing and analyzing data.
 
+## Table of Contents
+
+- [Deployment via Resource Manager](#deployment-via-resource-manager)
+- [Deployment via CLI Terraform](#deployment-via-cli-terraform)
+
 ### What can the stack provision?
 <details>
 <summary>Compartment</summary>

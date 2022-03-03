@@ -123,8 +123,8 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following these sub-steps:
 \
 \
-	<b>Access Your Resources:</b>
-	<b></b>
+	<b>Access Your Resources:</b>\
+	<b></b>\
 	<b></b>
 	1. Click `Outputs` to open a page that shows the identifiers of the resources that were provisioned.
 	2. For each resource that you wish to access, do the following:

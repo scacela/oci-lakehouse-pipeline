@@ -82,8 +82,8 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 4. Click `Next` to proceed to the `Configure Variables` section.
 5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile. If Oracle Analytics Cloud (OAC) is one of the resources you wish to deploy, follow the sub-steps.
 	\
-	<b>For OAC Deployment: Generate an Access Token</b>
 	\
+	<b>For OAC Deployment: Generate an Access Token</b>
 	1. Duplicate your browser tab, and switch to that tab.
 	2. Click the Hamburger icon at the top-left of the OCI UI.
 	3. Type `federation`, and click `Federation` on the right-hand side of the page once it auto-populates.
@@ -91,8 +91,8 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 	5. Click the link next to `Oracle Identity Cloud Service Console:`
 	6. Follow the sub-steps to create an IDCS Application that can be used to generate access tokens.
 		\
-		<b>One-Time Only: Generate an IDCS Application</b>
 		\
+		<b>One-Time Only: Generate an IDCS Application</b>
 		1. Click the `+` icon on the card labeled, `Applications and Services` to add an IDCS Application.
 		2. Click `Confidential Application`
 		3. In the `Details` section, enter a name e.g.: `Analytics_Token_App`, then click `Next`.
@@ -119,8 +119,8 @@ For general Resource Manager deployment steps, follow the steps in [this documen
 7. Select the checkbox for `Run Apply`, and click `Create`.
 8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following the steps available in the dropdown below.
 	\
-	<b>Access Your Resources</b>
 	\
+	<b>Access Your Resources</b>
 	1. Click `Outputs` to open a page that shows the identifiers of the resources that were provisioned.
 	2. For each resource that you wish to access, do the following:
 		1. Copy to your clipboard its identifier from under the `Value` column.

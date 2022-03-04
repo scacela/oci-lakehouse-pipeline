@@ -78,9 +78,7 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 - Fully-privileged access to an OCI Tenancy (account).
 - Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
 \
-\
 <b>Note:</b> For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
-\
 \
 <b>Steps</b>
 1. Click the button, opening the link into a new browser tab:

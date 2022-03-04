@@ -99,7 +99,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 	<b>Generate an Access Token for OAC Deployment:</b>
 	1. Duplicate your browser tab where you are signed into the OCI UI, and switch to that tab, or if you are not already signed into the OCI UI, open a new browser tab and navigate to `cloud.oracle.com` and sign in with your OCI user credentials.
 	2. Click the Hamburger icon at the top-left of the OCI UI.
-	3. Type `federation`, and click `Federation` on the right-hand side of the page once it auto-populates.
+	3. Type `federation`, and click `Federation` on the right-hand side of the OCI UI once it auto-populates.
 	4. Click the hyperlinked name of your identity provider of type IDCS (Oracle Identity Cloud Service).
 	5. Click the hyperlinked text next to `Oracle Identity Cloud Service Console`. This link will open the IDCS UI.
 	6. To create an IDCS Application that can be used to generate access tokens, please follow this sub-steps series:

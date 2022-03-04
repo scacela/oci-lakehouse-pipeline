@@ -109,7 +109,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 \
 \
 		<b>(One-Time Only) Generate an IDCS Application:</b>
-		1. Click the `+` icon on the card labeled, `Applications and Services` to add an IDCS Application.
+		1. Click the `+` icon on the tile labeled, `Applications and Services` to add an IDCS Application.
 		2. Click `Confidential Application`
 		3. In the `Details` section, enter a name, e.g. `Analytics_Token_App`, then click `Next`.
 		4. In the `Client` section, choose the option to `Configure this application as a client now`.

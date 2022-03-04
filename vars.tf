@@ -14,8 +14,8 @@ variable "suffix" { default = "DEFAULT_REGION_KEY" }
 
 # Compartment
 variable "compartment_is_deployed" { default = true }
-variable "compartment_description" { default = "Compartment for Streaming Pipeline" }
-variable "compartment_name" { default = "Streaming" }
+variable "compartment_description" { default = "Compartment for Lakehouse Pipeline" }
+variable "compartment_name" { default = "Lakehouse" }
 variable "compartment_id" { default = "DEFAULT_TENANCY" }
 variable "parent_compartment_id" { default = "DEFAULT_TENANCY" } # if compartment_is_deployed == true, then parent_compartment_id is used in the place of compartment_id
 variable "enable_delete" { default = false }

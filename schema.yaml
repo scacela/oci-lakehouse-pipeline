@@ -1,6 +1,6 @@
 # reference for schema.yaml:
 # https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager_topic-schema.htm#exampleschema
-title: "OCI Streaming Pipeline"
+title: "OCI Lakehouse Pipeline"
 description: "Deploy a pipeline for streaming, warehousing, processessing and analyzing data. Expand the options to show the default settings, and customize as needed. Unexpanded options will assume the values that are defined at the Terraform level."
 schemaVersion: 1.1.0
 version: 20190404
@@ -176,7 +176,7 @@ variables:
     required: true
     description: "New Compartment (logical IAM container), which will be deployed within an existing Compartment. If unchecked, the stack will be deployed within an existing Compartment."
     title: "Deploy New Compartment?"
-    default: false
+    default: true
     visible: compartment_is_visible
   vcn_is_deployed:
     type: boolean
@@ -227,14 +227,13 @@ variables:
     title: "Deploy Streaming?"
     default: false
 
-
-
+  # "detail" tiles
   compartment_name:
     type: string
     required: true
     description: "(Updatable) The name of the Compartment. Valid characters are uppercase or lowercase letters, numbers, hyphens, underscores, and periods. The name must be unique across all Compartments in the parent Compartment."
     title: "Compartment Name"
-    default: "Streaming"
+    default: "Lakehouse"
     visible: compartment_is_deployed
     pattern: "^[_\\-a-zA-Z0-9\\.]*$"
   compartment_description:
@@ -242,7 +241,7 @@ variables:
     required: true
     description: "Provide a description for the new Compartment."
     title: "Compartment Description"
-    default: "Compartment for Streaming Pipeline"
+    default: "Compartment for Lakehouse Pipeline"
     visible: compartment_is_deployed
   compartment_id:
     type: oci:identity:compartment:id
@@ -252,7 +251,6 @@ variables:
     default: compartment_ocid
     visible:
       - not: compartment_is_deployed
-
   parent_compartment_id:
     type: oci:identity:compartment:id
     required: true
@@ -272,7 +270,7 @@ variables:
     required: true
     description: "Group for users who manage Compartment-related operations."
     title: "Deploy Group for Compartment?"
-    default: true
+    default: false
     visible: compartment_is_deployed
   compartment_group_name:
     type: string
@@ -299,7 +297,7 @@ variables:
     required: true
     description: "Collection of policy statements that grant permissions for user groups, dynamic groups, and services."
     title: "Deploy Identity and Access Management (IAM) Policies for Compartment?"
-    default: true
+    default: false
     visible:
       and:
         - compartment_is_deployed
@@ -886,7 +884,7 @@ variables:
   analytics_instance_idcs_access_token:
     type: string
     required: true
-    description: "IDCS access token identifying a stripe and service administrator user. Steps: Log into IDCS as an IDCS admin and generate an access token. Set sufficient expiry time for you to deploy the Terraform scripts using the value from the IDCS token. The value from the token file can be supplied by pasting <VALUE> from {\"app_access_token\":\"<VALUE>\"}"
+    description: "IDCS access token identifying a stripe and service administrator user. Generate a token file containing the access token from an IDCS Application. Supply the access token from the token file by pasting <VALUE> from {\"app_access_token\":\"<VALUE>\"}"
     title: "OAC IDCS Access Token"
     visible: oac_is_deployed
   analytics_instance_capacity_capacity_type:

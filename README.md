@@ -146,13 +146,11 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 		4. Click the listing that appears in the search results.
 
 ### Deployment via CLI Terraform
-<b>Prerequisites</b>
+#### Prerequisites
 - Fully-privileged access to an OCI Tenancy (account).
 - Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
 - Terraform set up on your local machine. You can access the steps [here](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm).
-\
-\
-<b>Steps</b>
+#### Steps
 1. [Download this project](https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.1.zip) to your local machine.
 2. [Set up CLI Terraform on your local machine.](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm) 
 3. Navigate to project folder on your local machine via CLI.

@@ -102,7 +102,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 	3. Type `federation`, and click `Federation` on the right-hand side of the page once it auto-populates.
 	4. Click the hyperlinked name of your identity provider of type IDCS (Oracle Identity Cloud Service).
 	5. Click the link next to `Oracle Identity Cloud Service Console:`
-	6. To create an IDCS Application that can be used to generate access tokens, follow this sub-steps series:
+	6. To create an IDCS Application that can be used to generate access tokens, please follow this sub-steps series:
 \
 \
 		<b>(One-Time Only) Generate an IDCS Application:</b>
@@ -122,10 +122,10 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 		11. Click `Finish`, and then click `Close` to exit the `Application Added` popup window.
 		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application be used to generate tokens.
 
-	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be accessed as follows:
+	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be accessed as follows from the IDCS UI:
 	```
 
-	Hamburger menu > Applications > (Search for your application) > (Click your IDCS Application listing)
+	Hamburger menu > Applications > (Search for your IDCS Application) > (Click your IDCS Application listing)
 	
 	```
 	8. Choose the option for `Customized Scopes`, and then click `Download Token`. This will initiate the download of a token file to your local machine called `tokens.tok`.

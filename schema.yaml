@@ -250,7 +250,7 @@ variables:
     title: "Compartment"
     default: compartment_ocid
     visible:
-      - not: compartment_is_deployed
+      not: compartment_is_deployed
   parent_compartment_id:
     type: oci:identity:compartment:id
     required: true

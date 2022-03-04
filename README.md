@@ -169,7 +169,7 @@ terraform init
 <pre>
 terraform plan
 </pre>
-7. Apply the changes described in the plan, and answer <b>yes</b> when prompted for confirmation.
+7. Apply the changes described in the plan, and answer `yes` when prompted for confirmation.
 <pre>
 terraform apply
 </pre>

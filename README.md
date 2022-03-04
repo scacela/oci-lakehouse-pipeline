@@ -140,7 +140,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 	<b>Access Your Resources:</b>
 	1. Click `Job Resources` to open a page that shows details about the resources that were provisioned.
 	2. For each resource that you wish to access, find the name of the resource under the `Name` column. If the name of the resource is hyperlinked, open the link into a new browser tab. If the name of the resource is not hyperlinked, do the following instead:
-		1. Copy to your clipboard its identifier from the `id` key, which can be found under the `Attributes` column once you click `Show`.
+		1. Copy to your clipboard its identifier, which is listed as the value to the `id` key, which can be found under the `Attributes` column once you click `Show`.
 		2. Duplicate your browser tab, and switch to that tab.
 		3. Paste the identifier from your clipboard into the search field at the top of the OCI UI.
 		4. Click the listing that appears in the search results.

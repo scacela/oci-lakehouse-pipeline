@@ -78,7 +78,10 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 - Fully-privileged access to an OCI Tenancy (account).
 - Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
 \
+\
 <b>Note:</b> For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
+\
+\
 <b>Steps</b>
 1. Click the button, opening the link into a new browser tab:
 \
@@ -150,6 +153,8 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 - Fully-privileged access to an OCI Tenancy (account).
 - Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
 - Terraform set up on your local machine. You can access the steps [here](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm).
+\
+\
 <b>Steps</b>
 1. [Download this project](https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.1.zip) to your local machine.
 2. [Set up CLI Terraform on your local machine.](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm) 

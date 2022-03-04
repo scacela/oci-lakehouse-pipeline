@@ -120,7 +120,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 		9. Click `Next` to proceed to the `Web Tier Policy` section. Choose the option to `Skip for later` to skip configuring the Web Tier Policy for this application.
 		10. Click `Next` to proceed to the `Authorization` section. Choose the option to `Skip for later` to skip enforcing grants as authorization.
 		11. Click `Finish`, and then click `Close` to exit the `Application Added` popup window.
-		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application be used to generate tokens.
+		12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application can be used to generate tokens.
 
 	7. Click `Generate Access Token` near the top-right corner of the IDCS UI. For subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be accessed from the IDCS UI as follows:
 	```

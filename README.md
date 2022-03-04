@@ -4,7 +4,6 @@ Deploy a pipeline for streaming, warehousing, processing and analyzing data.
 ## Table of Contents
 
 - [What can the stack provision?](#what-can-the-stack-provision)
-- [Prerequisites](#prerequisites)
 - [Deployment via Resource Manager](#deployment-via-resource-manager)
 - [Deployment via CLI Terraform](#deployment-via-cli-terraform)
 
@@ -73,14 +72,12 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 </pre>
 </details>
 
-### Prerequisites
-- Fully-privileged access to an OCI Tenancy (account).
-- (CLI Terraform deployment only) Terraform set up on your local machine. You can access the steps [here](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm).
-- Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
-
 
 ### Deployment via Resource Manager
-For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
+<b>Prerequisites</b>
+- Fully-privileged access to an OCI Tenancy (account).
+- Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
+<b>Note:</b> For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
 
 
 1. Click the button, opening the link into a new browser tab:
@@ -149,7 +146,10 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 		4. Click the listing that appears in the search results.
 
 ### Deployment via CLI Terraform
-
+<b>Prerequisites</b>
+- Fully-privileged access to an OCI Tenancy (account).
+- Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
+- Terraform set up on your local machine. You can access the steps [here](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm).
 
 1. [Download this project](https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.1.zip) to your local machine.
 2. [Set up CLI Terraform on your local machine.](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm) 

@@ -127,17 +127,17 @@ cd &ltYOUR_PATH_TO_THIS_PROJECT&gt
 \
 \
 If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an Oracle Identity Cloud Service (IDCS) Application, and use it to generate a token file that contains the access token, which will be used as an input parameter that is required for OAC deployment. To walk through this process, please follow [this series of instructions](./modules/oac/generate-idcs-access-token-for-oac.md) before proceeding to the next step.
-6. If OAC is part of your deployment, paste the contents of the file named `token-value.txt` (not to be confused with `tokens.tok`) as the value for the variable named `analytics_instance_idcs_access_token`.
-5. Initialize your Terraform project, downloading necessary packages for the deployment.
+5. If OAC is part of your deployment, paste the contents of the file named `token-value.txt` (not to be confused with `tokens.tok`) as the value for the variable named `analytics_instance_idcs_access_token`.
+6. Initialize your Terraform project, downloading necessary packages for the deployment.
 <pre>
 terraform init
 </pre>
-6. View the plan of the Terraform deployment, and confirm that the changes described in the plan reflect the changes you wish to make in your OCI environment.
+7. View the plan of the Terraform deployment, and confirm that the changes described in the plan reflect the changes you wish to make in your OCI environment.
 <pre>
 terraform plan
 </pre>
-7. Apply the changes described in the plan, and answer `yes` when prompted for confirmation.
+8. Apply the changes described in the plan, and answer `yes` when prompted for confirmation.
 <pre>
 terraform apply
 </pre>
-8. You can track the logs associated with the job by monitoring the output on the CLI. After the deployment has finished, review the output information at the bottom of the logs for instructions on how to access the nodes in the topology.
+9. You can track the logs associated with the job by monitoring the output on the CLI. After the deployment has finished, review the output information at the bottom of the logs for instructions on how to access the nodes in the topology.

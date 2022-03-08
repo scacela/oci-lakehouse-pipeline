@@ -6,6 +6,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 - [Sign into the IDCS UI](#sign-into-the-idcs-ui)
 - [Generate an IDCS Application](#generate-an-idcs-application)
 - [Generate the Access Token from the IDCS Application](#generate-the-access-token-from-the-idcs-application)
+- [Return to Deployment Instructions Page](https://github.com/scacela/oci-lakehouse-pipeline#oci-lakehouse-pipeline)
 
 ### Sign into the IDCS UI
 1. If you are not already signed into the OCI UI, open a new browser tab and navigate to `cloud.oracle.com` and sign in with your OCI user credentials.
@@ -46,3 +47,6 @@ Hamburger menu > Applications > (Search for your IDCS Application) > (Click your
 In other words, copy to your clipboard `<VALUE>` from `{"app_access_token":"<VALUE>"}` from within the `tokens.tok` file.
 
 4. Paste the contents of your clipboard into a new file on your local machine named `token-value.txt`. There should be no quotation marks in the pasted content. Ensure that this file will be easy to access for a later step where you will use the contents of this file as an input parameter that is required for OAC deployment.
+\
+\
+You may click [here](https://github.com/scacela/oci-lakehouse-pipeline#oci-lakehouse-pipeline) to return to the deployment instructions page.

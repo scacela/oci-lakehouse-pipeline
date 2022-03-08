@@ -40,9 +40,9 @@ Hamburger menu > Applications > (Search for your IDCS Application) > (Click your
 
 ```
 2. Choose the option for `Customized Scopes`, and then click `Download Token`. This will initiate the download of a token file to your local machine called `tokens.tok`.
-3. Using a text editor, open `tokens.tok` from your download location. From its contents, copy to your clipboard the string of characters between the quotes that appear as the value from the single key-value pair within the file.
+3. Using a text editor, open `tokens.tok` from your download location. From its contents, copy to your clipboard the string of characters between the quotation marks that appear as the value from the single key-value pair within the file.
 \
 \
 In other words, copy to your clipboard `<VALUE>` from `{"app_access_token":"<VALUE>"}` from within the `tokens.tok` file.
 
-4. Paste the contents of your clipbaord into a new file on your local machine named `token-value.txt`. Ensure that this file will be easy to access for a later step where you will use the value in this file as an input parameter that is required for OAC deployment.
+4. Paste the contents of your clipboard into a new file on your local machine named `token-value.txt`. There should be no quotation marks in this value. Ensure that this file will be easy to access for a later step where you will use the value in this file as an input parameter that is required for OAC deployment.

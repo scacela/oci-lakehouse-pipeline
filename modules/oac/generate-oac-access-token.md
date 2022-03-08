@@ -1,7 +1,13 @@
 # Generate an Access Token for OAC Deployment
 If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an access token to use for the `OAC IDCS Access Token` field. To walk through this process, please follow these instructions.
 
-## Sign into the IDCS UI
+## Table of Contents
+
+- [Sign into the IDCS UI](#sign-into-the-idcs-ui)
+- [Generate an IDCS Application](#generate-an-idcs-application)
+- [Generate the Access Token from the IDCS Application](#generate-the-access-token-from-the-idcs-application)
+
+### Sign into the IDCS UI
 1. If you are not already signed into the OCI UI, open a new browser tab and navigate to `cloud.oracle.com` and sign in with your OCI user credentials.
 2. Click the Hamburger icon at the top-left of the OCI UI.
 3. Type `federation`, and click `Federation` on the right-hand side of the OCI UI once it auto-populates.
@@ -9,7 +15,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 5. Click the hyperlinked text next to `Oracle Identity Cloud Service Console`. This link will open the IDCS UI.
 6. To create an IDCS Application that can be used to generate access tokens, please proceed to [the next section](#generate-an-idcs-application).
 
-## Generate an IDCS Application
+### Generate an IDCS Application
 1. Click the `+` icon on the tile labeled `Applications and Services` to add an IDCS Application.
 2. Click `Confidential Application`
 3. In the `Details` section, enter a name, e.g. `Analytics_Token_App`, then click `Next`.
@@ -26,7 +32,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 11. Click `Finish`, and then click `Close` to exit the `Application Added` popup window.
 12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application can be used to generate tokens.
 
-## Generate the Access Token from the IDCS Application
+### Generate the Access Token from the IDCS Application
 1. Click `Generate Access Token` near the top-right corner of the IDCS UI. Note that for subsequent deployments of OAC, you may return to this IDCS Application to generate a new access token. The IDCS Application can be accessed from the IDCS UI as follows:
 ```
 

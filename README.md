@@ -77,6 +77,7 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 #### Prerequisites
 - Fully-privileged access to an OCI Tenancy (account).
 - Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
+- Access Token for OAC deployment. If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an Oracle Identity Cloud Service (IDCS) Application, and use it to generate a token file that contains the access token, which will be used as an input parameter for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-idcs-access-token-for-oac.md).
 #### Note
 For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
 #### Steps
@@ -90,14 +91,15 @@ For general Resource Manager deployment steps, you can refer to [this documentat
 5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile.
 \
 \
-Optionally, you can customize the attributes of each selected resource once its respective "details" tile appears below.
+Optionally, you can customize the attributes of each selected resource once an additional tile that presents configuration options for its respective resource appears below.
 \
 \
 If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an Oracle Identity Cloud Service (IDCS) Application, and use it to generate a token file that contains the access token, which will be used as an input parameter for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-idcs-access-token-for-oac.md) before proceeding to the next step.
 
-6. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
-7. Select the checkbox for `Run Apply`, and click `Create`.
-8. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following this sub-steps series:
+6. If OAC is part of your deployment, paste the contents of the file named `token-value.txt` (not to be confused with `tokens.tok`) into the `OAC IDCS Access Token` field, which can be found in the tile that presents configuration options for OAC.
+7. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
+8. Select the checkbox for `Run Apply`, and click `Create`.
+9. You can monitor the deployment by monitoring the `Logs` window. Once the resources in the stack have been provisioned, you can access your resources by following this sub-steps series:
 \
 \
 	<b>Access Your Resources:</b>
@@ -113,6 +115,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 - Fully-privileged access to an OCI Tenancy (account).
 - Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
 - Terraform set up on your local machine. You can access the steps [here](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm).
+- Access Token for OAC deployment. If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an Oracle Identity Cloud Service (IDCS) Application, and use it to generate a token file that contains the access token, which will be used as an input parameter for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-idcs-access-token-for-oac.md).
 #### Steps
 1. [Download this project](https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.1.zip) to your local machine.
 2. [Set up CLI Terraform on your local machine.](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm) 
@@ -124,6 +127,7 @@ cd &ltYOUR_PATH_TO_THIS_PROJECT&gt
 \
 \
 If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an Oracle Identity Cloud Service (IDCS) Application, and use it to generate a token file that contains the access token, which will be used as an input parameter for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-idcs-access-token-for-oac.md) before proceeding to the next step.
+6. If OAC is part of your deployment, paste the contents of the file named `token-value.txt` (not to be confused with `tokens.tok`) as the value for the variable named `analytics_instance_idcs_access_token`.
 5. Initialize your Terraform project, downloading necessary packages for the deployment.
 <pre>
 terraform init

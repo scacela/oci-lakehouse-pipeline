@@ -45,4 +45,4 @@ Hamburger menu > Applications > (Search for your IDCS Application) > (Click your
 \
 In other words, copy to your clipboard `<VALUE>` from `{"app_access_token":"<VALUE>"}` from within the `tokens.tok` file.
 
-4. On your browser tab with the `Configure Variables` section of Resource Manager, paste the contents of your clipboard into the `OAC IDCS Access Token` field.
+4. Paste the contents of your clipbaord into a new file on your local machine named `token-value.txt`. Ensure that this file will be easy to access for a later step where you will use the value in this file as an input parameter that is required for OAC deployment.

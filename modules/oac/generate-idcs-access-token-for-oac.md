@@ -45,4 +45,4 @@ Hamburger menu > Applications > (Search for your IDCS Application) > (Click your
 \
 In other words, copy to your clipboard `<VALUE>` from `{"app_access_token":"<VALUE>"}` from within the `tokens.tok` file.
 
-4. Paste the contents of your clipboard into a new file on your local machine named `token-value.txt`. There should be no quotation marks in the pasted content. Ensure that this file will be easy to access for a later step where you will use the value in this file as an input parameter that is required for OAC deployment.
+4. Paste the contents of your clipboard into a new file on your local machine named `token-value.txt`. There should be no quotation marks in the pasted content. Ensure that this file will be easy to access for a later step where you will use the contents of this file as an input parameter that is required for OAC deployment.

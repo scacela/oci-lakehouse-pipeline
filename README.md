@@ -93,7 +93,7 @@ For general Resource Manager deployment steps, you can refer to [this documentat
 Optionally, you can customize the attributes of each selected resource once its respective "details" tile appears below.
 \
 \
-If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an access token to use for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-oac-access-token.md).
+If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an IDCS Application, and use it to generate a token file that contains the access token, which will be used as an input parameter for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-oac-access-token.md) before resuming with these instructions.
 
 6. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
 7. Select the checkbox for `Run Apply`, and click `Create`.
@@ -123,7 +123,7 @@ cd &ltYOUR_PATH_TO_THIS_PROJECT&gt
 4. Open your local copy of [vars.tf](./vars.tf) and edit the values that are assigned to the objects of type variable, which will influence the stack topology according to your preferences.
 \
 \
-If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an access token to use for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-oac-access-token.md).
+If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an IDCS Application, and use it to generate a token file that contains the access token, which will be used as an input parameter for the `OAC IDCS Access Token` field. To walk through this process, please follow [this series of instructions](./modules/oac/generate-oac-access-token.md) before resuming with these instructions.
 5. Initialize your Terraform project, downloading necessary packages for the deployment.
 <pre>
 terraform init

@@ -1,5 +1,5 @@
 # Generate an Access Token for OAC Deployment
-If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to generate an access token to use for the `OAC IDCS Access Token` field. To walk through this process, please follow these instructions.
+If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy, you will need to [generate an IDCS Application](#generate-an-idcs-application), and use it to [generate a token file](#generate-the-access-token-from-the-idcs-application) that contains the access token, which will be used as an input parameter for the `OAC IDCS Access Token` field. To walk through this process, please follow these instructions.
 
 ## Table of Contents
 

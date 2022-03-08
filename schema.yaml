@@ -1,7 +1,7 @@
 # reference for schema.yaml:
 # https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager_topic-schema.htm#exampleschema
 title: "OCI Lakehouse Pipeline"
-description: "Deploy a pipeline for streaming, warehousing, processessing and analyzing data. Expand the options to show the default settings, and customize as needed. Unexpanded options will assume the values that are defined at the Terraform level."
+description: "Deploy the building blocks that are necessary for your data lakehouse solution architecture."
 schemaVersion: 1.1.0
 version: 20190404
 locale: "en"

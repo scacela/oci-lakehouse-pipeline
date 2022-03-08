@@ -28,7 +28,7 @@ If Oracle Analytics Cloud (OAC) is one of the resources that you wish to deploy,
 7. For `Grant the client access to Identity Cloud Service Admin APIs`, click `Add` and select `Me` from the popup window, and click `Add`.
 8. Click `Next` to proceed to the `Resources` section. Choose the option to `Skip for later` to skip configuring this application as a resource server.
 9. Click `Next` to proceed to the `Web Tier Policy` section. Choose the option to `Skip for later` to skip configuring the Web Tier Policy for this application.
-10. Click `Next` to proceed to the `Authorization` section. Leave the `Enforce Grants as Authorization` option unselected, and click `Finish`.
+10. Click `Next` to proceed to the `Authorization` section. Leave the option for `Enforce Grants as Authorization` unselected, and click `Finish`.
 11. Click `Close` to exit the `Application Added` popup window.
 12. Click `Activate` near the top-right corner of the IDCS UI, and then click `OK` to confirm the activation of your application, so that your IDCS Application can be used to generate tokens.
 

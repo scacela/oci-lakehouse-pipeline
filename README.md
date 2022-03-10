@@ -81,10 +81,10 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 #### Note
 For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
 #### Steps
-1. Click the button, opening the link into a new browser tab:
+1. Click the `Deploy to Oracle Cloud` button below, opening the link into a new browser tab.
 \
 \
-e.g. In Chrome, Firefox and Safari: `CTRL`+`Click` > Select `Open Link in New Tab`.
+In Chrome, Firefox and Safari, you can do this with `CTRL`+`Click` > Select `Open Link in New Tab`.
 \
 \
 [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.1.zip)

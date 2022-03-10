@@ -91,11 +91,7 @@ In Chrome, Firefox and Safari, you can do this with `CTRL`+`Click` > Select `Ope
 2. Log into your Oracle Cloud Infrastructure (OCI) tenancy with your user credentials. You will then be redirected to the `Stack Information` section of Resource Manager.
 3. In the `Stack Information` section, select the checkbox to confirm that you accept the [Oracle Terms of Use](https://cloudmarketplace.oracle.com/marketplace/content?contentId=50511634&render=inline).
 4. Click `Next` to proceed to the `Configure Variables` section.
-5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile.
-\
-\
-Optionally, you can customize the attributes of each selected resource once an additional tile that presents configuration options for its respective resource appears below.
-\
+5. For each resource that you wish to deploy, verify that the corresponding checkbox is selected in the `Select Resources` tile. Optionally, you can customize the attributes of each selected resource once an additional tile that presents configuration options for its respective resource appears below.
 6. If Oracle Analytics Cloud (OAC) is part of your deployment, ensure that you have already completed the [prerequisite instructions](./modules/oac/generate-idcs-access-token-for-oac.md). Once completed, paste the contents of the file named `token-value.txt` (not to be confused with `tokens.tok`) into the `OAC IDCS Access Token` field, which can be found in the tile that presents configuration options for OAC.
 7. When you are finished editing your variables in the `Configure Variables` section, click `Next` to proceed to the `Review` section.
 8. Select the checkbox for `Run Apply`, and click `Create`.

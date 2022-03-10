@@ -83,6 +83,7 @@ For general Resource Manager deployment steps, you can refer to [this documentat
 #### Steps
 1. Click the button, opening the link into a new browser tab:
 \
+\
 e.g. In Chrome: CTRL+Click > Select `Open Link in New Tab`):
 \
 \

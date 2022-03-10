@@ -84,7 +84,7 @@ For general Resource Manager deployment steps, you can refer to [this documentat
 1. Click the button, opening the link into a new browser tab:
 \
 \
-e.g. In Chrome: CTRL+Click > Select `Open Link in New Tab`):
+e.g. In Chrome: CTRL+Click > Select `Open Link in New Tab`.
 \
 \
 [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/scacela/oci-streaming-pipeline/archive/refs/tags/v1.0.1.zip)

@@ -76,7 +76,7 @@ Real-time, serverless, Apache Kafka-compatible event streaming platform for deve
 ### Deployment via Resource Manager
 #### Prerequisites
 - Fully-privileged access to an OCI Tenancy (account).
-- Sufficient availability of resources in your OCI Tenancy. You can check resource availability in your OCI Tenancy [here](https://cloud.oracle.com/limits?region=home).
+- Sufficient availability of resources in your OCI Tenancy. You can check resource availability [here](https://cloud.oracle.com/limits?region=home).
 - For Oracle Analytics Cloud (OAC) deployment: An access token from an Identity Cloud Service (IDCS) Application, which will be used as an input parameter that is required for OAC deployment. To walk through this process, please follow [this series of instructions](./modules/oac/generate-idcs-access-token-for-oac.md).
 #### Note
 For general Resource Manager deployment steps, you can refer to [this documentation](https://docs.oracle.com/en-us/iaas/Content/ResourceManager/Tasks/deploybutton.htm#ariaid-title4). For steps that are specific to this stack, proceed to Step 1.
